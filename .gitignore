@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Local environment
+.env
+.env.local
+
+# Temp / working files
+*.tmp
+*.bak
+*.orig
+
+# Image originals folder (keep processed versions only)
+/originals/
