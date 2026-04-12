@@ -1,0 +1,52 @@
+{
+  "about": {
+    "stats": [
+      {
+        "value": "1.6M+",
+        "label": "Combined Followers"
+      },
+      {
+        "value": "72M+",
+        "label": "Combined Likes"
+      },
+      {
+        "value": "3",
+        "label": "Platforms"
+      },
+      {
+        "value": "2",
+        "label": "Creators"
+      }
+    ]
+  },
+  "roster": [
+    {
+      "id": "kym",
+      "name": "Kym",
+      "tag": "Content Creator",
+      "bio": "Kym is a lifestyle and fashion creator known for her fit checks, authentic wasian perspective, and JROTC content. With a natural presence on camera and a growing audience, she connects with fans through real, relatable storytelling.",
+      "followers": "224K",
+      "likes": "17.9M",
+      "photo": "kym.jpg",
+      "socials": {
+        "tiktok": "https://www.tiktok.com/@kymchi_n_crackers",
+        "instagram": "https://www.instagram.com/glittery.unicorn.farts/",
+        "youtube": "https://www.youtube.com/@ShimmieKymmie"
+      }
+    },
+    {
+      "id": "mys",
+      "name": "Mys",
+      "tag": "Content Creator",
+      "bio": "Mys is a breakout lifestyle and trend creator with over 1.4 million followers and 54 million likes on TikTok. Known for her magnetic energy, swag-forward content, and deeply personal storytelling, she has built one of the most engaged young audiences on the platform.",
+      "followers": "1.4M",
+      "likes": "54.2M",
+      "photo": "mys.jpg",
+      "socials": {
+        "tiktok": "https://www.tiktok.com/@mysthegreat",
+        "instagram": "https://www.instagram.com/therealmysthegreat/",
+        "youtube": "https://www.youtube.com/@Mys-The-Great"
+      }
+    }
+  ]
+}
