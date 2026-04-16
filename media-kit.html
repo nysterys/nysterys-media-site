@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media Kit — Nysterys Media</title>
+  <meta name="theme-color" content="#080808" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" />
+
+  <style>
+    /* ─── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ─── Tokens ─────────────────────────────────────────── */
+    :root {
+      --black:   #080808;
+      --surface: #111111;
+      --surface2: #161616;
+      --border:  #1e1e1e;
+      --orange:  #ff5c00;
+      --orange2: #ff8c42;
+      --white:   #f5f5f5;
+      --muted:   #888888;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.35;
+    }
+
+    /* ─── Nav ────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3rem;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--orange); }
+
+    .nav-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--orange);
+      color: var(--black);
+      text-decoration: none;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--orange);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+    }
+
+    .nav-download:hover {
+      background: var(--orange2);
+      border-color: var(--orange2);
+    }
+
+    .nav-download svg { width: 13px; height: 13px; }
+
+    /* ─── Hero ───────────────────────────────────────────── */
+    .mk-hero {
+      min-height: 42vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 10rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mk-hero::before {
+      content: 'MEDIA KIT';
+      position: absolute;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18vw;
+      color: rgba(255, 92, 0, 0.03);
+      bottom: -2rem;
+      left: -1rem;
+      pointer-events: none;
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+    }
+
+    .mk-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .mk-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.92;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.25rem;
+    }
+
+    .mk-title span { color: var(--orange); }
+
+    .mk-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
+      max-width: 520px;
+    }
+
+    /* ─── Divider ─────────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--orange), transparent);
+      margin: 0 3rem;
+      opacity: 0.3;
+    }
+
+    /* ─── Section wrapper ────────────────────────────────── */
+    .section {
+      padding: 5rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Overview stats bar ─────────────────────────────── */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 0;
+    }
+
+    .overview-stat {
+      background: var(--surface);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overview-stat::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--orange);
+    }
+
+    .overview-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .overview-lbl {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── Creator profiles ───────────────────────────────── */
+    .creator-section {
+      padding: 5rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .creator-block {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .creator-block:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .creator-photo-wrap {
+      position: relative;
+    }
+
+    .creator-photo-wrap img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      filter: brightness(0.9);
+    }
+
+    .creator-photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, var(--black), transparent);
+    }
+
+    .creator-details { }
+
+    .creator-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+
+    .creator-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 0.9;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Key metrics row */
+    .creator-metrics {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .metric {
+      flex: 1;
+      padding: 1.25rem 1.5rem;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+
+    .metric:last-child { border-right: none; }
+
+    .metric::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--orange), var(--orange2));
+    }
+
+    .metric-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: var(--orange);
+      line-height: 1;
+      display: block;
+    }
+
+    .metric-lbl {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.2rem;
+      display: block;
+    }
+
+    /* Bio */
+    .creator-bio {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #aaaaaa;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    /* Two col charts */
+    .creator-charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .chart-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+    }
+
+    .chart-title {
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Bar chart rows */
+    .bar-rows { display: flex; flex-direction: column; gap: 0.85rem; }
+
+    .bar-row { display: flex; flex-direction: column; gap: 0.3rem; }
+
+    .bar-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+    }
+
+    .bar-meta-lbl { color: var(--muted); }
+
+    .bar-meta-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      color: var(--white);
+    }
+
+    .bar-track {
+      height: 3px;
+      background: var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(to right, var(--orange), var(--orange2));
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Donut */
+    .donut-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .donut-svg {
+      width: 110px;
+      height: 110px;
+      transform: rotate(-90deg);
+    }
+
+    .donut-legend {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+    }
+
+    .legend-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .legend-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .legend-label { color: #aaaaaa; }
+
+    .legend-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      color: var(--orange);
+    }
+
+    /* Tags */
+    .tags-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .tag-orange {
+      color: var(--orange);
+      border-color: rgba(255, 92, 0, 0.35);
+    }
+
+    /* Social links row */
+    .creator-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .creator-social {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.85rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .creator-social:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    .creator-social svg { width: 12px; height: 12px; }
+
+    /* ─── Brand collab section ────────────────────────────── */
+    .collab-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .collab-item {
+      background: var(--surface);
+      padding: 1.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: background 0.2s, color 0.2s;
+      position: relative;
+    }
+
+    .collab-item::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .collab-item:hover {
+      background: var(--surface2);
+      color: var(--white);
+    }
+
+    .collab-item:hover::before { transform: scaleX(1); }
+
+    /* ─── Contact section ────────────────────────────────── */
+    .mk-contact {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mk-contact::before {
+      content: 'NYSTERYS';
+      position: absolute;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20vw;
+      color: rgba(255, 92, 0, 0.03);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .mk-contact-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.25rem;
+    }
+
+    .mk-contact-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .mk-contact-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 2.5rem;
+    }
+
+    .mk-contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      letter-spacing: 0.15em;
+      color: var(--orange);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 92, 0, 0.3);
+      padding-bottom: 0.25rem;
+      transition: border-color 0.2s, gap 0.2s;
+    }
+
+    .mk-contact-email:hover {
+      border-color: var(--orange);
+      gap: 1.25rem;
+    }
+
+    /* ─── Footer ──────────────────────────────────────────── */
+    footer {
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .footer-logo span { color: var(--orange); }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: #444444;
+    }
+
+    /* ─── Responsive ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 1.5rem; }
+
+      .mk-hero { padding: 8rem 1.5rem 3rem; }
+
+      .section, .creator-section { padding: 3.5rem 1.5rem; }
+
+      .overview-grid { grid-template-columns: 1fr 1fr; }
+
+      .creator-block { grid-template-columns: 1fr; }
+
+      .creator-photo-wrap img { aspect-ratio: 4 / 3; }
+
+      .creator-charts { grid-template-columns: 1fr; }
+
+      .creator-metrics { flex-wrap: wrap; }
+
+      .collab-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .divider { margin: 0 1.5rem; }
+
+      footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Nav ───────────────────────────────────────────── -->
+  <nav>
+    <a class="nav-logo" href="index.html">NYS<span>T</span>ERYS</a>
+    <button class="nav-download" id="download-btn" onclick="downloadPDF()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+      </svg>
+      Download PDF
+    </button>
+  </nav>
+
+  <!-- ─── Hero ──────────────────────────────────────────── -->
+  <section class="mk-hero">
+    <p class="mk-eyebrow">Nysterys Media LLC &mdash; Confidential</p>
+    <h1 class="mk-title">Media <span>Kit</span></h1>
+    <p class="mk-subtitle">Audience data, creator profiles, and partnership categories for brand collaboration inquiries.</p>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- ─── Combined overview ─────────────────────────────── -->
+  <section class="section" id="overview">
+    <div class="section-header">
+      <span class="section-label">Combined Reach</span>
+      <h2 class="section-title">Roster Overview</h2>
+    </div>
+    <div class="overview-grid">
+      <div class="overview-stat">
+        <div class="overview-val">1.6M+</div>
+        <div class="overview-lbl">Combined Followers</div>
+      </div>
+      <div class="overview-stat">
+        <div class="overview-val">72M+</div>
+        <div class="overview-lbl">Combined Likes</div>
+      </div>
+      <div class="overview-stat">
+        <div class="overview-val">3</div>
+        <div class="overview-lbl">Platforms</div>
+      </div>
+      <div class="overview-stat">
+        <div class="overview-val">85%</div>
+        <div class="overview-lbl">Female Audience</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- ─── Creator profiles ──────────────────────────────── -->
+  <section class="creator-section" id="creators">
+    <div class="section-header">
+      <span class="section-label">Our Talent</span>
+      <h2 class="section-title">Creator Profiles</h2>
+    </div>
+
+    <!-- MYS -->
+    <div class="creator-block" id="block-mys">
+      <div class="creator-photo-wrap">
+        <img src="mys.jpg" alt="Mys" />
+      </div>
+      <div class="creator-details">
+        <p class="creator-tag">Content Creator &mdash; TikTok, Instagram, YouTube</p>
+        <h2 class="creator-name">Mys</h2>
+
+        <!-- Key metrics -->
+        <div class="creator-metrics">
+          <div class="metric">
+            <span class="metric-val">1.4M</span>
+            <span class="metric-lbl">Followers</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">54.2M</span>
+            <span class="metric-lbl">Likes</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">13.8%</span>
+            <span class="metric-lbl">Eng. Rate</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val" id="mys-avg-views">—</span>
+            <span class="metric-lbl">Avg. Views</span>
+          </div>
+        </div>
+
+        <p class="creator-bio">
+          Mys is a breakout lifestyle and trend creator with over 1.4 million followers and
+          54 million likes on TikTok. Known for her magnetic energy, swag-forward content,
+          and deeply personal storytelling, she has built one of the most engaged young
+          audiences on the platform.
+        </p>
+
+        <!-- Content categories -->
+        <p class="chart-title" style="margin-bottom: 0.75rem;">Content Categories</p>
+        <div class="tags-wrap" style="margin-bottom: 1.5rem;">
+          <span class="tag tag-orange">Fashion</span>
+          <span class="tag tag-orange">Lifestyle</span>
+          <span class="tag tag-orange">Music</span>
+          <span class="tag tag-orange">Beauty</span>
+          <span class="tag">Teenage</span>
+          <span class="tag">School</span>
+          <span class="tag">Concerts</span>
+        </div>
+
+        <!-- Audience charts -->
+        <div class="creator-charts">
+          <!-- Gender -->
+          <div class="chart-card">
+            <p class="chart-title">Gender Split</p>
+            <div class="donut-wrap">
+              <svg class="donut-svg" viewBox="0 0 36 36" id="mys-donut" aria-label="Gender split" role="img"></svg>
+              <div class="donut-legend" id="mys-gender-legend"></div>
+            </div>
+          </div>
+          <!-- Age -->
+          <div class="chart-card">
+            <p class="chart-title">Age Distribution</p>
+            <div class="bar-rows" id="mys-age-bars"></div>
+          </div>
+          <!-- Countries -->
+          <div class="chart-card">
+            <p class="chart-title">Top Countries</p>
+            <div class="bar-rows" id="mys-country-bars"></div>
+          </div>
+        </div>
+
+        <!-- Socials -->
+        <div class="creator-socials" id="mys-socials"></div>
+      </div>
+    </div>
+
+    <!-- KYM -->
+    <div class="creator-block" id="block-kym">
+      <div class="creator-photo-wrap">
+        <img src="kym.jpg" alt="Kym" />
+      </div>
+      <div class="creator-details">
+        <p class="creator-tag">Content Creator &mdash; TikTok, Instagram, YouTube</p>
+        <h2 class="creator-name">Kym</h2>
+
+        <!-- Key metrics -->
+        <div class="creator-metrics">
+          <div class="metric">
+            <span class="metric-val">224K</span>
+            <span class="metric-lbl">Followers</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">17.9M</span>
+            <span class="metric-lbl">Likes</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">11%</span>
+            <span class="metric-lbl">Eng. Rate</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val" id="kym-avg-views">—</span>
+            <span class="metric-lbl">Avg. Views</span>
+          </div>
+        </div>
+
+        <p class="creator-bio">
+          Kym is a lifestyle and fashion creator known for her fit checks, authentic wasian
+          perspective, and JROTC content. With a natural presence on camera and a growing
+          audience, she connects with fans through real, relatable storytelling.
+        </p>
+
+        <!-- Content categories -->
+        <p class="chart-title" style="margin-bottom: 0.75rem;">Content Categories</p>
+        <div class="tags-wrap" style="margin-bottom: 1.5rem;">
+          <span class="tag tag-orange">Fashion</span>
+          <span class="tag tag-orange">Lifestyle</span>
+          <span class="tag tag-orange">Beauty</span>
+          <span class="tag">Teenage</span>
+          <span class="tag">School</span>
+          <span class="tag">College</span>
+          <span class="tag">JROTC</span>
+        </div>
+
+        <!-- Audience charts -->
+        <div class="creator-charts">
+          <!-- Gender -->
+          <div class="chart-card">
+            <p class="chart-title">Gender Split</p>
+            <div class="donut-wrap">
+              <svg class="donut-svg" viewBox="0 0 36 36" id="kym-donut" aria-label="Gender split" role="img"></svg>
+              <div class="donut-legend" id="kym-gender-legend"></div>
+            </div>
+          </div>
+          <!-- Age -->
+          <div class="chart-card">
+            <p class="chart-title">Age Distribution</p>
+            <div class="bar-rows" id="kym-age-bars"></div>
+          </div>
+          <!-- Countries -->
+          <div class="chart-card">
+            <p class="chart-title">Top Countries</p>
+            <div class="bar-rows" id="kym-country-bars"></div>
+          </div>
+        </div>
+
+        <!-- Socials -->
+        <div class="creator-socials" id="kym-socials"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- ─── Brand collaboration categories ───────────────── -->
+  <section class="section" id="collabs">
+    <div class="section-header">
+      <span class="section-label">Partnership Fit</span>
+      <h2 class="section-title">Brand Collaboration Categories</h2>
+    </div>
+    <div class="collab-grid">
+      <div class="collab-item">Music</div>
+      <div class="collab-item">Labels</div>
+      <div class="collab-item">Bands</div>
+      <div class="collab-item">Artists</div>
+      <div class="collab-item">Beauty</div>
+      <div class="collab-item">Fashion</div>
+      <div class="collab-item">Clothing</div>
+      <div class="collab-item">Accessories</div>
+      <div class="collab-item">Shoes</div>
+      <div class="collab-item">Apparel</div>
+      <div class="collab-item">Make-Up</div>
+      <div class="collab-item">Lifestyle</div>
+    </div>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- ─── Contact ───────────────────────────────────────── -->
+  <section class="mk-contact">
+    <p class="mk-contact-label">Start a Conversation</p>
+    <h2 class="mk-contact-heading">Ready to Collaborate?</h2>
+    <p class="mk-contact-sub">Reach out with your campaign brief and we will get back to you directly.</p>
+    <a class="mk-contact-email" href="#" id="mk-email-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20" aria-hidden="true">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- ─── Footer ────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">NYS<span>T</span>ERYS MEDIA LLC</div>
+    <div class="footer-copy">&copy; 2026 Nysterys Media LLC. Confidential &mdash; not for redistribution.</div>
+  </footer>
+
+  <!-- ─── Scripts ───────────────────────────────────────── -->
+
+  <script>
+    // Email assembled in JS only — never in HTML source
+    (function() {
+      var parts = ['inquiries', '@', 'nysterys', '.', 'com'];
+      var email = parts.join('');
+      var link = document.getElementById('mk-email-link');
+      if (link) {
+        link.href = 'mailto:' + email;
+        link.innerHTML = email + ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+      }
+    })();
+  </script>
+
+  <script>
+    var ICONS = {
+      tiktok:    '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>',
+      instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>',
+      youtube:   '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.3-2-1.2-2.8c-1.1-1.2-2.4-1.2-3-1.3C16.6 2.8 12 2.8 12 2.8s-4.6 0-6.8.2c-.6 0-1.9.1-3 1.3C1.3 5 1 7 1 7S.7 9.2.7 11.5v2.1C.7 16 1 18 1 18s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C7.6 22.2 12 22.2 12 22.2s4.6 0 6.8-.3c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.3-2.2.3-4.4v-2.1C23.3 9.2 23 7 23 7zM9.7 15.5V8.4l8.1 3.6-8.1 3.5z"/></svg>'
+    };
+
+    var GENDER_COLORS = ['#ff5c00', '#ff8c42', '#444444'];
+
+    function buildDonut(svgId, data) {
+      var svg = document.getElementById(svgId);
+      var cx = 18, cy = 18, r = 15.9155;
+      var circ = 2 * Math.PI * r;
+      svg.innerHTML = '';
+
+      // Background track
+      var bg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      bg.setAttribute('cx', cx); bg.setAttribute('cy', cy); bg.setAttribute('r', r);
+      bg.setAttribute('fill', 'none'); bg.setAttribute('stroke', '#1e1e1e');
+      bg.setAttribute('stroke-width', '3.5');
+      svg.appendChild(bg);
+
+      var offset = 0;
+      data.forEach(function(seg, i) {
+        var frac  = seg.value / 100;
+        var dash  = frac * circ;
+        var gap   = circ - dash;
+        var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        c.setAttribute('cx', cx); c.setAttribute('cy', cy); c.setAttribute('r', r);
+        c.setAttribute('fill', 'none');
+        c.setAttribute('stroke', GENDER_COLORS[i] || '#333');
+        c.setAttribute('stroke-width', '3.5');
+        c.setAttribute('stroke-dasharray', dash + ' ' + gap);
+        c.setAttribute('stroke-dashoffset', -(offset * circ));
+        svg.appendChild(c);
+        offset += frac;
+      });
+    }
+
+    function buildGenderLegend(elId, data) {
+      var el = document.getElementById(elId);
+      el.innerHTML = data.map(function(seg, i) {
+        return '<div class="legend-row">'
+          + '<div class="legend-left">'
+          +   '<div class="legend-dot" style="background:' + (GENDER_COLORS[i] || '#333') + '"></div>'
+          +   '<span class="legend-label">' + seg.label + '</span>'
+          + '</div>'
+          + '<span class="legend-val">' + seg.value + '%</span>'
+          + '</div>';
+      }).join('');
+    }
+
+    function buildBarRows(elId, data, isCountry) {
+      var max = isCountry ? data[0].value : Math.max.apply(null, data.map(function(d) { return d.value; }));
+      var el = document.getElementById(elId);
+      el.innerHTML = data.map(function(d) {
+        var w = (d.value / max) * 100;
+        return '<div class="bar-row">'
+          + '<div class="bar-meta">'
+          +   '<span class="bar-meta-lbl">' + d.label + '</span>'
+          +   '<span class="bar-meta-val">' + d.value + '%</span>'
+          + '</div>'
+          + '<div class="bar-track"><div class="bar-fill" data-width="' + w + '"></div></div>'
+          + '</div>';
+      }).join('');
+    }
+
+    function buildSocials(elId, socials) {
+      var el = document.getElementById(elId);
+      el.innerHTML = Object.entries(socials).map(function(e) {
+        return '<a href="' + e[1] + '" target="_blank" rel="noopener noreferrer" class="creator-social">'
+          + ICONS[e[0]] + ' ' + e[0].toUpperCase() + '</a>';
+      }).join('');
+    }
+
+    // Animate bars into view
+    var barObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.bar-fill').forEach(function(bar) {
+            bar.style.width = bar.dataset.width + '%';
+          });
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    // Fade in blocks on scroll
+    var fadeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Load data and render
+    fetch('data.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        data.roster.forEach(function(creator) {
+          var id = creator.id;
+
+          // Avg views — show if present in data, otherwise dash
+          var avgEl = document.getElementById(id + '-avg-views');
+          if (avgEl && creator.avgViews) avgEl.textContent = creator.avgViews;
+
+          // Charts
+          buildDonut(id + '-donut', creator.audience.gender);
+          buildGenderLegend(id + '-gender-legend', creator.audience.gender);
+          buildBarRows(id + '-age-bars', creator.audience.age, false);
+          buildBarRows(id + '-country-bars', creator.audience.topCountries, true);
+          buildSocials(id + '-socials', creator.socials);
+        });
+
+        // Observe chart cards for bar animation
+        document.querySelectorAll('.chart-card').forEach(function(card) {
+          barObserver.observe(card);
+        });
+
+        // Fade in creator blocks
+        document.querySelectorAll('.creator-block, .overview-stat, .collab-item').forEach(function(el) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(24px)';
+          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          fadeObserver.observe(el);
+        });
+      })
+      .catch(function(err) { console.error('Could not load data.json:', err); });
+  </script>
+
+  <!-- jsPDF for client-side PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script>
+    function downloadPDF() {
+      var btn = document.getElementById('download-btn');
+      btn.textContent = 'Generating...';
+      btn.disabled = true;
+
+      var doc = new window.jspdf.jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+      var W = 210, H = 297;
+      var margin = 18;
+      var col = margin;
+      var y = 0;
+
+      // ── Helpers ───────────────────────────────────────────
+      function hex2rgb(hex) {
+        var r = parseInt(hex.slice(1,3),16);
+        var g = parseInt(hex.slice(3,5),16);
+        var b = parseInt(hex.slice(5,7),16);
+        return [r, g, b];
+      }
+      function setOrange() { doc.setTextColor(255, 92, 0); }
+      function setWhite()  { doc.setTextColor(245, 245, 245); }
+      function setMuted()  { doc.setTextColor(136, 136, 136); }
+      function setDark()   { doc.setTextColor(40, 40, 40); }
+      function newPage() {
+        doc.addPage();
+        // Dark background
+        doc.setFillColor(8, 8, 8);
+        doc.rect(0, 0, W, H, 'F');
+        y = margin;
+      }
+
+      // ── Cover page ─────────────────────────────────────────
+      doc.setFillColor(8, 8, 8);
+      doc.rect(0, 0, W, H, 'F');
+
+      // Orange accent bar top
+      doc.setFillColor(255, 92, 0);
+      doc.rect(0, 0, W, 3, 'F');
+
+      y = 60;
+      setMuted();
+      doc.setFontSize(7);
+      doc.setFont('helvetica', 'normal');
+      doc.text('NYSTERYS MEDIA LLC — CONFIDENTIAL', margin, y);
+
+      y += 14;
+      setOrange();
+      doc.setFontSize(48);
+      doc.setFont('helvetica', 'bold');
+      doc.text('MEDIA', margin, y);
+
+      y += 28;
+      setWhite();
+      doc.text('KIT', margin, y);
+
+      y += 16;
+      doc.setFillColor(255, 92, 0);
+      doc.rect(margin, y, 40, 0.5, 'F');
+
+      y += 12;
+      setMuted();
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'italic');
+      doc.text('Private management for creators who move culture.', margin, y);
+
+      y += 20;
+      doc.setFontSize(8);
+      doc.setFont('helvetica', 'normal');
+      doc.text('Audience data, creator profiles, and partnership categories', margin, y);
+      y += 5;
+      doc.text('for brand collaboration inquiries.', margin, y);
+
+      // Combined stats at bottom of cover
+      y = H - 60;
+      var stats = [
+        { val: '1.6M+', lbl: 'Combined Followers' },
+        { val: '72M+',  lbl: 'Combined Likes' },
+        { val: '85%',   lbl: 'Female Audience' },
+        { val: '3',     lbl: 'Platforms' }
+      ];
+      var statW = (W - margin * 2) / stats.length;
+      stats.forEach(function(s, i) {
+        var x = margin + i * statW;
+        // Thin orange top line
+        doc.setFillColor(255, 92, 0);
+        doc.rect(x, y - 2, statW - 2, 0.4, 'F');
+        setOrange();
+        doc.setFontSize(18);
+        doc.setFont('helvetica', 'bold');
+        doc.text(s.val, x, y + 8);
+        setMuted();
+        doc.setFontSize(6.5);
+        doc.setFont('helvetica', 'normal');
+        doc.text(s.lbl.toUpperCase(), x, y + 14);
+      });
+
+      // Orange bottom bar
+      doc.setFillColor(255, 92, 0);
+      doc.rect(0, H - 3, W, 3, 'F');
+
+      // ── Creator pages ──────────────────────────────────────
+      var creators = [
+        {
+          name: 'Mys',
+          tag: 'Content Creator — TikTok, Instagram, YouTube',
+          bio: 'Breakout lifestyle and trend creator with over 1.4M followers and 54M likes on TikTok. Known for magnetic energy, swag-forward content, and deeply personal storytelling.',
+          metrics: [
+            { val: '1.4M',  lbl: 'Followers' },
+            { val: '54.2M', lbl: 'Likes' },
+            { val: '13.8%', lbl: 'Engagement Rate' },
+            { val: '—',     lbl: 'Avg. Views' }
+          ],
+          categories: ['Fashion', 'Lifestyle', 'Music', 'Beauty', 'Teenage', 'School', 'Concerts'],
+          gender: [{ label: 'Female', value: 85 }, { label: 'Male', value: 14 }, { label: 'Other', value: 1 }],
+          age: [{ label: '18-24', value: 40.5 }, { label: '25-34', value: 26.3 }, { label: '35-44', value: 18.3 }, { label: '45-54', value: 9.9 }, { label: '55+', value: 5.0 }],
+          countries: [{ label: 'United States', value: 30.5 }, { label: 'United Kingdom', value: 6.4 }, { label: 'Canada', value: 6.0 }, { label: 'Philippines', value: 3.5 }, { label: 'Australia', value: 3.4 }]
+        },
+        {
+          name: 'Kym',
+          tag: 'Content Creator — TikTok, Instagram, YouTube',
+          bio: 'Lifestyle and fashion creator known for fit checks, authentic wasian perspective, and JROTC content. Natural presence on camera with a growing, highly engaged audience.',
+          metrics: [
+            { val: '224K', lbl: 'Followers' },
+            { val: '17.9M', lbl: 'Likes' },
+            { val: '11%',  lbl: 'Engagement Rate' },
+            { val: '—',    lbl: 'Avg. Views' }
+          ],
+          categories: ['Fashion', 'Lifestyle', 'Beauty', 'Teenage', 'School', 'College', 'JROTC'],
+          gender: [{ label: 'Female', value: 85 }, { label: 'Male', value: 14 }, { label: 'Other', value: 1 }],
+          age: [{ label: '18-24', value: 40.5 }, { label: '25-34', value: 26.3 }, { label: '35-44', value: 18.3 }, { label: '45-54', value: 9.9 }, { label: '55+', value: 5.0 }],
+          countries: [{ label: 'United States', value: 30.5 }, { label: 'United Kingdom', value: 6.4 }, { label: 'Canada', value: 6.0 }, { label: 'Philippines', value: 3.5 }, { label: 'Australia', value: 3.4 }]
+        }
+      ];
+
+      creators.forEach(function(creator) {
+        newPage();
+
+        // Orange top bar
+        doc.setFillColor(255, 92, 0);
+        doc.rect(0, 0, W, 3, 'F');
+
+        // Creator name
+        setOrange();
+        doc.setFontSize(7);
+        doc.setFont('helvetica', 'normal');
+        doc.text('CREATOR PROFILE', margin, y);
+
+        y += 10;
+        setWhite();
+        doc.setFontSize(36);
+        doc.setFont('helvetica', 'bold');
+        doc.text(creator.name.toUpperCase(), margin, y);
+
+        y += 5;
+        setMuted();
+        doc.setFontSize(7);
+        doc.setFont('helvetica', 'normal');
+        doc.text(creator.tag, margin, y);
+
+        // Divider line
+        y += 6;
+        doc.setFillColor(255, 92, 0);
+        doc.rect(margin, y, W - margin * 2, 0.3, 'F');
+        y += 8;
+
+        // Metrics row
+        var mW = (W - margin * 2) / creator.metrics.length;
+        creator.metrics.forEach(function(m, i) {
+          var x = margin + i * mW;
+          doc.setFillColor(255, 92, 0);
+          doc.rect(x, y - 1, mW - 3, 0.3, 'F');
+          setOrange();
+          doc.setFontSize(16);
+          doc.setFont('helvetica', 'bold');
+          doc.text(m.val, x, y + 8);
+          setMuted();
+          doc.setFontSize(6);
+          doc.setFont('helvetica', 'normal');
+          doc.text(m.lbl.toUpperCase(), x, y + 13);
+        });
+
+        y += 22;
+
+        // Bio
+        setWhite();
+        doc.setFontSize(8.5);
+        doc.setFont('helvetica', 'normal');
+        var bioLines = doc.splitTextToSize(creator.bio, W - margin * 2);
+        doc.text(bioLines, margin, y);
+        y += bioLines.length * 5 + 8;
+
+        // Content categories
+        setOrange();
+        doc.setFontSize(6.5);
+        doc.setFont('helvetica', 'normal');
+        doc.text('CONTENT CATEGORIES', margin, y);
+        y += 5;
+        var catX = margin;
+        creator.categories.forEach(function(cat) {
+          var tw = doc.getTextWidth(cat.toUpperCase()) + 6;
+          if (catX + tw > W - margin) { catX = margin; y += 7; }
+          doc.setDrawColor(255, 92, 0);
+          doc.setLineWidth(0.2);
+          doc.rect(catX, y - 3.5, tw, 5.5);
+          setMuted();
+          doc.setFontSize(6);
+          doc.text(cat.toUpperCase(), catX + 3, y + 0.5);
+          catX += tw + 3;
+        });
+        y += 12;
+
+        // Audience section header
+        doc.setFillColor(255, 92, 0);
+        doc.rect(margin, y, W - margin * 2, 0.3, 'F');
+        y += 6;
+        setOrange();
+        doc.setFontSize(6.5);
+        doc.text('AUDIENCE INSIGHTS', margin, y);
+        y += 8;
+
+        // Three columns: gender | age | countries
+        var colW = (W - margin * 2 - 8) / 3;
+        var col1 = margin;
+        var col2 = margin + colW + 4;
+        var col3 = margin + (colW + 4) * 2;
+        var rowStart = y;
+
+        // Gender column
+        setMuted();
+        doc.setFontSize(6);
+        doc.text('GENDER SPLIT', col1, rowStart);
+        var gy = rowStart + 6;
+        creator.gender.forEach(function(seg, i) {
+          var colors = [[255,92,0],[255,140,66],[68,68,68]];
+          var rgb = colors[i] || [68,68,68];
+          doc.setFillColor(rgb[0], rgb[1], rgb[2]);
+          doc.circle(col1 + 2, gy - 1, 1.5, 'F');
+          setMuted();
+          doc.setFontSize(7);
+          doc.text(seg.label, col1 + 6, gy);
+          setOrange();
+          doc.setFontSize(8);
+          doc.setFont('helvetica', 'bold');
+          doc.text(seg.value + '%', col1 + colW - doc.getTextWidth(seg.value + '%'), gy);
+          doc.setFont('helvetica', 'normal');
+          gy += 7;
+        });
+
+        // Age column
+        setMuted();
+        doc.setFontSize(6);
+        doc.text('AGE DISTRIBUTION', col2, rowStart);
+        var ay = rowStart + 6;
+        var maxAge = Math.max.apply(null, creator.age.map(function(d){return d.value;}));
+        creator.age.forEach(function(bracket) {
+          setMuted();
+          doc.setFontSize(6.5);
+          doc.text(bracket.label, col2, ay);
+          setWhite();
+          doc.text(bracket.value + '%', col2 + colW - doc.getTextWidth(bracket.value + '%'), ay);
+          // Bar
+          doc.setFillColor(30, 30, 30);
+          doc.rect(col2, ay + 1, colW, 1.5, 'F');
+          doc.setFillColor(255, 92, 0);
+          doc.rect(col2, ay + 1, colW * (bracket.value / maxAge), 1.5, 'F');
+          ay += 7;
+        });
+
+        // Countries column
+        setMuted();
+        doc.setFontSize(6);
+        doc.text('TOP COUNTRIES', col3, rowStart);
+        var cy2 = rowStart + 6;
+        var maxCo = creator.countries[0].value;
+        creator.countries.forEach(function(country) {
+          setMuted();
+          doc.setFontSize(6.5);
+          doc.text(country.label, col3, cy2);
+          setOrange();
+          doc.text(country.value + '%', col3 + colW - doc.getTextWidth(country.value + '%'), cy2);
+          doc.setFillColor(30, 30, 30);
+          doc.rect(col3, cy2 + 1, colW, 1.5, 'F');
+          doc.setFillColor(255, 92, 0);
+          doc.rect(col3, cy2 + 1, colW * (country.value / maxCo), 1.5, 'F');
+          cy2 += 7;
+        });
+
+        // Orange bottom bar
+        doc.setFillColor(255, 92, 0);
+        doc.rect(0, H - 3, W, 3, 'F');
+
+        // Page footer
+        setMuted();
+        doc.setFontSize(6);
+        doc.text('NYSTERYS MEDIA LLC — CONFIDENTIAL', margin, H - 7);
+        doc.text('nysterys.com', W - margin - doc.getTextWidth('nysterys.com'), H - 7);
+      });
+
+      // ── Brand categories page ──────────────────────────────
+      newPage();
+
+      doc.setFillColor(255, 92, 0);
+      doc.rect(0, 0, W, 3, 'F');
+
+      setMuted();
+      doc.setFontSize(7);
+      doc.text('PARTNERSHIP FIT', margin, y);
+      y += 10;
+      setWhite();
+      doc.setFontSize(28);
+      doc.setFont('helvetica', 'bold');
+      doc.text('BRAND COLLABORATION', margin, y);
+      y += 12;
+      doc.text('CATEGORIES', margin, y);
+      y += 6;
+      doc.setFillColor(255, 92, 0);
+      doc.rect(margin, y, 40, 0.4, 'F');
+      y += 12;
+
+      var categories = ['Music', 'Labels', 'Bands', 'Artists', 'Beauty', 'Fashion', 'Clothing', 'Accessories', 'Shoes', 'Apparel', 'Make-Up', 'Lifestyle'];
+      var catCols = 3;
+      var catColW = (W - margin * 2 - 8) / catCols;
+      categories.forEach(function(cat, i) {
+        var cx2 = margin + (i % catCols) * (catColW + 4);
+        var cy3 = y + Math.floor(i / catCols) * 16;
+        doc.setFillColor(17, 17, 17);
+        doc.rect(cx2, cy3 - 5, catColW, 12, 'F');
+        doc.setDrawColor(30, 30, 30);
+        doc.setLineWidth(0.2);
+        doc.rect(cx2, cy3 - 5, catColW, 12);
+        doc.setFillColor(255, 92, 0);
+        doc.rect(cx2, cy3 - 5, 2, 12, 'F');
+        setMuted();
+        doc.setFontSize(7.5);
+        doc.setFont('helvetica', 'normal');
+        doc.text(cat.toUpperCase(), cx2 + 6, cy3 + 2);
+      });
+
+      y += Math.ceil(categories.length / catCols) * 16 + 16;
+
+      // Contact block
+      doc.setFillColor(17, 17, 17);
+      doc.rect(margin, y, W - margin * 2, 40, 'F');
+      doc.setFillColor(255, 92, 0);
+      doc.rect(margin, y, 2, 40, 'F');
+
+      setOrange();
+      doc.setFontSize(7);
+      doc.text('GET IN TOUCH', margin + 8, y + 10);
+      setWhite();
+      doc.setFontSize(14);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Ready to Collaborate?', margin + 8, y + 20);
+      setMuted();
+      doc.setFontSize(8);
+      doc.setFont('helvetica', 'normal');
+      doc.text('inquiries@nysterys.com', margin + 8, y + 30);
+      setOrange();
+      doc.text('nysterys.com', W - margin - doc.getTextWidth('nysterys.com'), y + 30);
+
+      doc.setFillColor(255, 92, 0);
+      doc.rect(0, H - 3, W, 3, 'F');
+      setMuted();
+      doc.setFontSize(6);
+      doc.text('NYSTERYS MEDIA LLC — CONFIDENTIAL', margin, H - 7);
+      doc.text('nysterys.com', W - margin - doc.getTextWidth('nysterys.com'), H - 7);
+
+      // Save
+      doc.save('Nysterys-Media-Kit-2026.pdf');
+
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download PDF';
+      btn.disabled = false;
+    }
+  </script>
+
+</body>
+</html>
