@@ -1,22 +1,10 @@
 {
   "about": {
     "stats": [
-      {
-        "value": "1.6M+",
-        "label": "Combined Followers"
-      },
-      {
-        "value": "72M+",
-        "label": "Combined Likes"
-      },
-      {
-        "value": "3",
-        "label": "Platforms"
-      },
-      {
-        "value": "2",
-        "label": "Creators"
-      }
+      { "value": "1.6M+", "label": "Combined Followers" },
+      { "value": "72M+",  "label": "Combined Likes" },
+      { "value": "3",     "label": "Platforms" },
+      { "value": "2",     "label": "Creators" }
     ]
   },
   "roster": [
@@ -27,11 +15,33 @@
       "bio": "Kym is a lifestyle and fashion creator known for her fit checks, authentic wasian perspective, and JROTC content. With a natural presence on camera and a growing audience, she connects with fans through real, relatable storytelling.",
       "followers": "224K",
       "likes": "17.9M",
+      "engagementRate": "11%",
       "photo": "kym.jpg",
       "socials": {
         "tiktok": "https://www.tiktok.com/@kymchi_n_crackers",
         "instagram": "https://www.instagram.com/glittery.unicorn.farts/",
         "youtube": "https://www.youtube.com/@ShimmieKymmie"
+      },
+      "audience": {
+        "gender": [
+          { "label": "Female", "value": 85 },
+          { "label": "Male",   "value": 14 },
+          { "label": "Other",  "value": 1  }
+        ],
+        "age": [
+          { "label": "18-24", "value": 40.5 },
+          { "label": "25-34", "value": 26.3 },
+          { "label": "35-44", "value": 18.3 },
+          { "label": "45-54", "value": 9.9  },
+          { "label": "55+",   "value": 5.0  }
+        ],
+        "topCountries": [
+          { "label": "United States",  "value": 30.5 },
+          { "label": "United Kingdom", "value": 6.4  },
+          { "label": "Canada",         "value": 6.0  },
+          { "label": "Philippines",    "value": 3.5  },
+          { "label": "Australia",      "value": 3.4  }
+        ]
       }
     },
     {
@@ -41,11 +51,33 @@
       "bio": "Mys is a breakout lifestyle and trend creator with over 1.4 million followers and 54 million likes on TikTok. Known for her magnetic energy, swag-forward content, and deeply personal storytelling, she has built one of the most engaged young audiences on the platform.",
       "followers": "1.4M",
       "likes": "54.2M",
+      "engagementRate": "13.8%",
       "photo": "mys.jpg",
       "socials": {
         "tiktok": "https://www.tiktok.com/@mysthegreat",
         "instagram": "https://www.instagram.com/therealmysthegreat/",
         "youtube": "https://www.youtube.com/@Mys-The-Great"
+      },
+      "audience": {
+        "gender": [
+          { "label": "Female", "value": 85 },
+          { "label": "Male",   "value": 14 },
+          { "label": "Other",  "value": 1  }
+        ],
+        "age": [
+          { "label": "18-24", "value": 40.5 },
+          { "label": "25-34", "value": 26.3 },
+          { "label": "35-44", "value": 18.3 },
+          { "label": "45-54", "value": 9.9  },
+          { "label": "55+",   "value": 5.0  }
+        ],
+        "topCountries": [
+          { "label": "United States",  "value": 30.5 },
+          { "label": "United Kingdom", "value": 6.4  },
+          { "label": "Canada",         "value": 6.0  },
+          { "label": "Philippines",    "value": 3.5  },
+          { "label": "Australia",      "value": 3.4  }
+        ]
       }
     }
   ]

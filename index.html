@@ -557,7 +557,11 @@ footer {
   border: 1px solid var(--border);
   overflow: hidden;
   position: relative;
-  transition: border-color .3s
+  transition: border-color .3s;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer
 }
 
 .talent-card:hover {
@@ -953,9 +957,11 @@ footer {
     Talent Management &amp; Creator Representation
    </p>
    <h1 class="hero-title">
-    NYS<span class="accent">T</span>ERYS
+    Talent
     <br/>
-    MEDIA
+    <span class="accent">Without</span>
+    <br/>
+    Limits
    </h1>
    <p class="hero-tagline">
     There's More to the Story.
@@ -1267,7 +1273,7 @@ function buildTalentCard(creator) {
   var socials = Object.entries(creator.socials)
     .map(function(entry) { return buildSocialLink(entry[0], entry[1]); })
     .join('');
-  return '<div class="talent-card">' +
+  return '<a class="talent-card" href="creator.html?id=' + creator.id + '">' +
     '<div class="talent-photo">' +
       '<img src="' + creator.photo + '" loading="lazy" decoding="async" alt="' + creator.name + '" />' +
     '</div>' +
@@ -1277,11 +1283,12 @@ function buildTalentCard(creator) {
       '<div class="talent-stats">' +
         '<div class="talent-stat"><span class="stat-val">' + creator.followers + '</span><span class="stat-lbl">Followers</span></div>' +
         '<div class="talent-stat"><span class="stat-val">' + creator.likes + '</span><span class="stat-lbl">Likes</span></div>' +
+        '<div class="talent-stat"><span class="stat-val">' + creator.engagementRate + '</span><span class="stat-lbl">Eng. Rate</span></div>' +
       '</div>' +
       '<p class="talent-bio">' + creator.bio + '</p>' +
       '<div class="talent-socials">' + socials + '</div>' +
     '</div>' +
-  '</div>';
+  '</a>';
 }
 
 fetch('data.json')
