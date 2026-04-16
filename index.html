@@ -1307,14 +1307,6 @@ fetch('data.json')
     var grid = document.getElementById('roster-grid');
     if (grid) {
       grid.innerHTML = data.roster.map(buildTalentCard).join('');
-      grid.querySelectorAll('.talent-card').forEach(function(el) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(32px)';
-        el.style.transition = 'opacity .7s ease, transform .7s ease';
-        // Use a short delay so the browser has painted the element
-        // before we check intersection — avoids cards staying invisible
-        setTimeout(function() { observer.observe(el); }, 50);
-      });
     }
   })
   .catch(function(err) { console.error('Could not load data.json:', err); });
