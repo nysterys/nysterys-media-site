@@ -815,11 +815,21 @@ footer {
   }
 }
 
-.talent-stats {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.25rem
-}
+    .footer-copy a {
+      color: #444444;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-copy a:hover {
+      color: var(--orange);
+    }
+
+    .talent-handle {
+      font-size: 0.4em;
+      color: var(--orange);
+      letter-spacing: 0.05em;
+    }
 
 .talent-stat {
   display: flex;
@@ -1279,9 +1289,7 @@ footer {
    </div>
    <div class="footer-copy">
     © 2026 Nysterys Media LLC. All rights reserved.  ·
-    <a href="/privacy.html" onmouseout="this.style.color='#444'" onmouseover="this.style.color='#FF5C00'" style="color:#444;text-decoration:none;">
-     Privacy Policy
-    </a>
+    <a href="/privacy.html">Privacy Policy</a>
    </div>
   </footer>
   <script>
@@ -1324,7 +1332,7 @@ function buildTalentCard(creator) {
     '</div>' +
     '<div class="talent-body">' +
       '<p class="talent-tag">' + creator.tag + '</p>' +
-      '<h3 class="talent-name">' + creator.name + ' <span style="font-size:0.4em;color:var(--orange);letter-spacing:0.05em;">@' + creator.socials.tiktok.split('@').pop() + '</span></h3>' +
+      '<h3 class="talent-name">' + creator.name + ' <span class="talent-handle">@' + creator.socials.tiktok.split('@').pop() + '</span></h3>' +
       '<div class="talent-stats">' +
         '<div class="talent-stat"><span class="stat-val">' + creator.followers + '</span><span class="stat-lbl">Followers</span></div>' +
         '<div class="talent-stat"><span class="stat-val">' + creator.likes + '</span><span class="stat-lbl">Likes</span></div>' +

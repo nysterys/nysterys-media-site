@@ -477,6 +477,11 @@
       color: #444444;
     }
 
+    .rc-error {
+      padding: 4rem;
+      color: var(--muted);
+    }
+
     /* ─── Responsive ──────────────────────────────────────── */
     @media (max-width: 900px) {
       nav {
@@ -729,7 +734,7 @@
         var creator = data.roster.find(function (c) { return c.id === creatorId; });
 
         if (!creator) {
-          document.body.innerHTML = '<p style="padding: 4rem; color: #888;">Creator not found.</p>';
+          document.body.innerHTML = '<p class="rc-error">Creator not found.</p>';
           return;
         }
 
