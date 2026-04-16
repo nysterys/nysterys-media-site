@@ -1248,7 +1248,7 @@ const observer = new IntersectionObserver(entries => {
       e.target.style.transform = 'translateY(0)';
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
 document.querySelectorAll('.about, .services, .stat, .service-card, .partner-card, .partner-nope').forEach(el => {
   el.style.opacity = '0';
@@ -1311,7 +1311,9 @@ fetch('data.json')
         el.style.opacity = '0';
         el.style.transform = 'translateY(32px)';
         el.style.transition = 'opacity .7s ease, transform .7s ease';
-        observer.observe(el);
+        // Use a short delay so the browser has painted the element
+        // before we check intersection — avoids cards staying invisible
+        setTimeout(function() { observer.observe(el); }, 50);
       });
     }
   })
