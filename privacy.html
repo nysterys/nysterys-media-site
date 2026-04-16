@@ -76,7 +76,7 @@
     <p>This Privacy Policy describes how Nysterys Media LLC ("Nysterys Media", "we", "us", or "our") handles information in connection with our website at <a href="https://nysterys.com">nysterys.com</a> (the "Site"). We are a private talent management company and this Site is informational in nature.</p>
 
     <h2>Information We Collect</h2>
-    <p>We do not operate any forms, accounts, or data collection systems on this Site. The only way we receive your information is if you contact us directly by email at <a href="mailto:inquiries@nysterys.com">inquiries@nysterys.com</a>. In that case, we may receive:</p>
+    <p>We do not operate any forms, accounts, or data collection systems on this Site. The only way we receive your information is if you contact us directly by email at <a href="#" class="obf-email"></a>. In that case, we may receive:</p>
     <ul>
       <li>Your name and email address</li>
       <li>Any information you choose to include in your message</li>
@@ -98,19 +98,31 @@
     <p>We take reasonable precautions to protect any information you send us via email. However, no method of electronic transmission is completely secure and we cannot guarantee absolute security.</p>
 
     <h2>Your Rights</h2>
-    <p>Depending on your location, you may have rights under applicable privacy laws including the right to access, correct, or delete personal information we hold about you. To exercise any of these rights, please contact us at <a href="mailto:inquiries@nysterys.com">inquiries@nysterys.com</a>.</p>
+    <p>Depending on your location, you may have rights under applicable privacy laws including the right to access, correct, or delete personal information we hold about you. To exercise any of these rights, please contact us at <a href="#" class="obf-email"></a>.</p>
 
     <h2>Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated effective date. We encourage you to review this page periodically.</p>
 
     <h2>Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:inquiries@nysterys.com">inquiries@nysterys.com</a>.</p>
+    <p>If you have any questions about this Privacy Policy, please contact us at <a href="#" class="obf-email"></a>.</p>
   </div>
 
   <footer>
     <div class="footer-logo">NYS<span>T</span>ERYS MEDIA LLC</div>
     <div class="footer-copy">&copy; 2026 Nysterys Media LLC. All rights reserved.</div>
   </footer>
+
+  <script>
+    // Email assembled in JS only — never present in HTML source
+    (function() {
+      var parts = ['inquiries', '@', 'nysterys', '.', 'com'];
+      var email = parts.join('');
+      document.querySelectorAll('.obf-email').forEach(function(el) {
+        el.href = 'mailto:' + email;
+        el.textContent = email;
+      });
+    })();
+  </script>
 
 </body>
 </html>

@@ -20,6 +20,54 @@
   <meta content="Private talent management representing 1.6M+ followers across TikTok, YouTube, and Instagram." name="twitter:description"/>
   <meta content="https://nysterys.com/kym.jpg" name="twitter:image"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://nysterys.com/#organization",
+        "name": "Nysterys Media LLC",
+        "url": "https://nysterys.com",
+        "logo": "https://nysterys.com/kym.jpg",
+        "description": "Nysterys Media is a private talent management company representing an exclusive roster of family creators across TikTok, YouTube, and Instagram.",
+        "email": "inquiries@nysterys.com",
+        "sameAs": [
+          "https://www.tiktok.com/@Nysterys",
+          "https://www.instagram.com/nysterys/",
+          "https://www.youtube.com/@Nysterys"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://nysterys.com/#kym",
+        "name": "Kym",
+        "jobTitle": "Content Creator",
+        "description": "Lifestyle and fashion creator known for fit checks, authentic wasian perspective, and JROTC content.",
+        "affiliation": { "@id": "https://nysterys.com/#organization" },
+        "sameAs": [
+          "https://www.tiktok.com/@kymchi_n_crackers",
+          "https://www.instagram.com/glittery.unicorn.farts/",
+          "https://www.youtube.com/@ShimmieKymmie"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://nysterys.com/#mys",
+        "name": "Mys",
+        "jobTitle": "Content Creator",
+        "description": "Breakout lifestyle and trend creator with over 1.4 million followers and 54 million likes on TikTok.",
+        "affiliation": { "@id": "https://nysterys.com/#organization" },
+        "sameAs": [
+          "https://www.tiktok.com/@mysthegreat",
+          "https://www.instagram.com/therealmysthegreat/",
+          "https://www.youtube.com/@Mys-The-Great"
+        ]
+      }
+    ]
+  }
+  </script>
   <style>
    *,
 *::before,
@@ -1199,7 +1247,7 @@ footer {
    <p class="contact-sub">
     Brand deals, collaboration inquiries, and booking requests welcome.
    </p>
-   <a class="contact-email" href="mailto:inquiries@nysterys.com"> inquiries@nysterys.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M5 12h14M12 5l7 7-7 7"/></svg> </a>
+   <a class="contact-email" href="#" id="contact-email-link"></a>
    <div class="social-links">
     <a aria-label="TikTok" class="social-link" href="https://www.tiktok.com/@Nysterys" rel="noopener" target="_blank">
      <svg fill="currentColor" viewBox="0 0 24 24">
@@ -1276,7 +1324,7 @@ function buildTalentCard(creator) {
     '</div>' +
     '<div class="talent-body">' +
       '<p class="talent-tag">' + creator.tag + '</p>' +
-      '<h3 class="talent-name">' + creator.name + '</h3>' +
+      '<h3 class="talent-name">' + creator.name + ' <span style="font-size:0.4em;color:var(--orange);letter-spacing:0.05em;">@' + creator.socials.tiktok.split('@').pop() + '</span></h3>' +
       '<div class="talent-stats">' +
         '<div class="talent-stat"><span class="stat-val">' + creator.followers + '</span><span class="stat-lbl">Followers</span></div>' +
         '<div class="talent-stat"><span class="stat-val">' + creator.likes + '</span><span class="stat-lbl">Likes</span></div>' +
@@ -1313,6 +1361,19 @@ fetch('data.json')
     }
   })
   .catch(function(err) { console.error('Could not load data.json:', err); });
+  </script>
+  <script>
+   // Email is assembled in JS only — never present in HTML source
+   // so Cloudflare and scrapers cannot detect or rewrite it
+   (function() {
+     var parts = ['inquiries', '@', 'nysterys', '.', 'com'];
+     var email = parts.join('');
+     var link = document.getElementById('contact-email-link');
+     if (link) {
+       link.href = 'mailto:' + email;
+       link.innerHTML = email + ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+     }
+   })();
   </script>
  </body>
 </html>

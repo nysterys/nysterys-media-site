@@ -14,18 +14,41 @@
       "tag": "Content Creator",
       "bio": "Kym is a lifestyle and fashion creator known for her fit checks, authentic wasian perspective, and JROTC content. With a natural presence on camera and a growing audience, she connects with fans through real, relatable storytelling.",
       "followers": "224K",
-      "likes": "17.9M",
+      "likes": "17.6M",
       "engagementRate": "11%",
+      "tiktokHandle": "kymchi_n_crackers",
       "photo": "kym.jpg",
       "socials": {
         "tiktok": "https://www.tiktok.com/@kymchi_n_crackers",
         "instagram": "https://www.instagram.com/glittery.unicorn.farts/",
         "youtube": "https://www.youtube.com/@ShimmieKymmie"
       },
+      "tiktokStats": {
+        "followers":           224600,
+        "allTimeViews":        128252569,
+        "allTimeLikes":        17609362,
+        "allTimeShares":       913882,
+        "allTimeComments":     79240,
+        "totalVideos":         1600,
+        "avgViewsPerVideo":    80158,
+        "medianViewsPerVideo": 15898,
+        "avgWatchTimeSec":     6.83,
+        "engagementRate":      0.11,
+        "femaleAudience":      0.80,
+        "usAudience":          0.373,
+        "dataAsOf":            "2026-04-11",
+        "viewDistribution": [
+          { "label": "<10K",     "count": 666, "pct": 41.6 },
+          { "label": "10K-50K",  "count": 584, "pct": 36.5 },
+          { "label": "50K-250K", "count": 269, "pct": 16.8 },
+          { "label": "250K-1M",  "count": 62,  "pct": 3.9  },
+          { "label": "1M+",      "count": 19,  "pct": 1.2  }
+        ]
+      },
       "audience": {
         "gender": [
-          { "label": "Female", "value": 85 },
-          { "label": "Male",   "value": 14 },
+          { "label": "Female", "value": 80 },
+          { "label": "Male",   "value": 19 },
           { "label": "Other",  "value": 1  }
         ],
         "age": [
@@ -36,13 +59,14 @@
           { "label": "55+",   "value": 5.0  }
         ],
         "topCountries": [
-          { "label": "United States",  "value": 30.5 },
-          { "label": "United Kingdom", "value": 6.4  },
-          { "label": "Canada",         "value": 6.0  },
-          { "label": "Philippines",    "value": 3.5  },
-          { "label": "Australia",      "value": 3.4  }
+          { "label": "United States",  "value": 37.3 },
+          { "label": "United Kingdom", "value": 6.7  },
+          { "label": "Canada",         "value": 6.5  },
+          { "label": "Australia",      "value": 4.1  },
+          { "label": "Philippines",    "value": 2.3  }
         ]
-      }
+      },
+      "contentCategories": ["Fashion", "Lifestyle", "Beauty", "Teenage", "School", "College", "JROTC"]
     },
     {
       "id": "mys",
@@ -50,13 +74,33 @@
       "tag": "Content Creator",
       "bio": "Mys is a breakout lifestyle and trend creator with over 1.4 million followers and 54 million likes on TikTok. Known for her magnetic energy, swag-forward content, and deeply personal storytelling, she has built one of the most engaged young audiences on the platform.",
       "followers": "1.4M",
-      "likes": "54.2M",
+      "likes": "54.7M",
       "engagementRate": "13.8%",
+      "tiktokHandle": "mysthegreat",
       "photo": "mys.jpg",
       "socials": {
         "tiktok": "https://www.tiktok.com/@mysthegreat",
         "instagram": "https://www.instagram.com/therealmysthegreat/",
         "youtube": "https://www.youtube.com/@Mys-The-Great"
+      },
+      "tiktokStats": {
+        "followers":           1385831,
+        "allTimeViews":        410380753,
+        "allTimeLikes":        54728115,
+        "totalVideos":         692,
+        "avgViewsPerVideo":    593036,
+        "medianViewsPerVideo": 263508,
+        "avgWatchTimeSec":     9.95,
+        "engagementRate":      0.138,
+        "femaleAudience":      0.85,
+        "dataAsOf":            "2026-04-15",
+        "viewDistribution": [
+          { "label": "<10K",     "count": 2,   "pct": 0.3  },
+          { "label": "10K-50K",  "count": 132, "pct": 19.1 },
+          { "label": "50K-250K", "count": 202, "pct": 29.2 },
+          { "label": "250K-1M",  "count": 271, "pct": 39.2 },
+          { "label": "1M+",      "count": 85,  "pct": 12.3 }
+        ]
       },
       "audience": {
         "gender": [
@@ -78,7 +122,21 @@
           { "label": "Philippines",    "value": 3.5  },
           { "label": "Australia",      "value": 3.4  }
         ]
-      }
+      },
+      "contentCategories": ["Fashion", "Lifestyle", "Music", "Beauty", "Teenage", "School", "Concerts"]
     }
-  ]
+  ],
+  "mediaKit": {
+    "rosterOverview": [
+      { "value": "1.6M+",  "label": "Combined Followers" },
+      { "value": "72M+",   "label": "Combined Likes" },
+      { "value": "410M+",  "label": "Combined Video Views" },
+      { "value": "83%",    "label": "Female Audience" }
+    ],
+    "brandCategories": [
+      "Music", "Labels", "Bands", "Artists",
+      "Beauty", "Fashion", "Clothing", "Accessories",
+      "Shoes", "Apparel", "Make-Up", "Lifestyle"
+    ]
+  }
 }

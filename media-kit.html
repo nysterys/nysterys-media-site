@@ -7,29 +7,23 @@
   <meta name="theme-color" content="#080808" />
   <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" />
 
   <style>
-    /* ─── Reset ─────────────────────────────────────────── */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* ─── Reset & tokens ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ─── Tokens ─────────────────────────────────────────── */
     :root {
-      --black:   #080808;
-      --surface: #111111;
+      --black:    #080808;
+      --surface:  #111111;
       --surface2: #161616;
-      --border:  #1e1e1e;
-      --orange:  #ff5c00;
-      --orange2: #ff8c42;
-      --white:   #f5f5f5;
-      --muted:   #888888;
+      --border:   #1e1e1e;
+      --orange:   #ff5c00;
+      --orange2:  #ff8c42;
+      --white:    #f5f5f5;
+      --muted:    #888888;
     }
 
     html { scroll-behavior: smooth; }
@@ -42,7 +36,6 @@
       overflow-x: hidden;
     }
 
-    /* Grain overlay */
     body::before {
       content: '';
       position: fixed;
@@ -84,20 +77,15 @@
       text-transform: uppercase;
       background: var(--orange);
       color: var(--black);
-      text-decoration: none;
-      padding: 0.5rem 1.25rem;
       border: 1px solid var(--orange);
+      padding: 0.5rem 1.25rem;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
       font-family: 'DM Sans', sans-serif;
       font-weight: 500;
+      transition: background 0.2s;
     }
 
-    .nav-download:hover {
-      background: var(--orange2);
-      border-color: var(--orange2);
-    }
-
+    .nav-download:hover { background: var(--orange2); border-color: var(--orange2); }
     .nav-download svg { width: 13px; height: 13px; }
 
     /* ─── Hero ───────────────────────────────────────────── */
@@ -122,7 +110,6 @@
       left: -1rem;
       pointer-events: none;
       white-space: nowrap;
-      letter-spacing: 0.05em;
     }
 
     .mk-eyebrow {
@@ -158,7 +145,7 @@
       opacity: 0.3;
     }
 
-    /* ─── Section wrapper ────────────────────────────────── */
+    /* ─── Sections ───────────────────────────────────────── */
     .section {
       padding: 5rem 3rem;
       max-width: 1200px;
@@ -185,14 +172,13 @@
       letter-spacing: 0.04em;
     }
 
-    /* ─── Overview stats bar ─────────────────────────────── */
+    /* ─── Overview stats ──────────────────────────────────── */
     .overview-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
-      margin-bottom: 0;
     }
 
     .overview-stat {
@@ -225,7 +211,7 @@
       color: var(--muted);
     }
 
-    /* ─── Creator profiles ───────────────────────────────── */
+    /* ─── Creator block ───────────────────────────────────── */
     .creator-section {
       padding: 5rem 3rem;
       max-width: 1200px;
@@ -234,7 +220,7 @@
 
     .creator-block {
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 260px 1fr;
       gap: 3rem;
       align-items: start;
       margin-bottom: 4rem;
@@ -248,9 +234,7 @@
       padding-bottom: 0;
     }
 
-    .creator-photo-wrap {
-      position: relative;
-    }
+    .creator-photo-wrap { position: relative; }
 
     .creator-photo-wrap img {
       width: 100%;
@@ -269,8 +253,6 @@
       background: linear-gradient(to top, var(--black), transparent);
     }
 
-    .creator-details { }
-
     .creator-tag {
       font-size: 0.6rem;
       letter-spacing: 0.3em;
@@ -287,16 +269,18 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Key metrics row */
+    /* ─── Metrics row ─────────────────────────────────────── */
     .creator-metrics {
       display: flex;
       gap: 0;
       margin-bottom: 2rem;
       border: 1px solid var(--border);
+      flex-wrap: wrap;
     }
 
     .metric {
       flex: 1;
+      min-width: 100px;
       padding: 1.25rem 1.5rem;
       border-right: 1px solid var(--border);
       position: relative;
@@ -329,17 +313,23 @@
       display: block;
     }
 
-    /* Bio */
     .creator-bio {
       font-size: 0.95rem;
       line-height: 1.8;
       color: #aaaaaa;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       max-width: 600px;
     }
 
-    /* Two col charts */
+    /* ─── Charts ──────────────────────────────────────────── */
     .creator-charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .creator-charts-wide {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 1.5rem;
@@ -350,7 +340,22 @@
       background: var(--surface);
       border: 1px solid var(--border);
       padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
     }
+
+    .chart-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--orange), var(--orange2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .chart-card:hover::before { transform: scaleX(1); }
 
     .chart-title {
       font-size: 0.58rem;
@@ -360,7 +365,7 @@
       margin-bottom: 1.25rem;
     }
 
-    /* Bar chart rows */
+    /* ─── Bar charts ──────────────────────────────────────── */
     .bar-rows { display: flex; flex-direction: column; gap: 0.85rem; }
 
     .bar-row { display: flex; flex-direction: column; gap: 0.3rem; }
@@ -395,7 +400,7 @@
       transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Donut */
+    /* ─── Donut chart ─────────────────────────────────────── */
     .donut-wrap {
       display: flex;
       flex-direction: column;
@@ -444,34 +449,25 @@
       color: var(--orange);
     }
 
-    /* Tags */
+    /* ─── Content category tags ───────────────────────────── */
     .tags-wrap {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .tag {
       font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 0.35rem 0.85rem;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .tag-orange {
       color: var(--orange);
-      border-color: rgba(255, 92, 0, 0.35);
+      border: 1px solid rgba(255, 92, 0, 0.35);
+      padding: 0.35rem 0.85rem;
     }
 
-    /* Social links row */
-    .creator-socials {
-      display: flex;
-      gap: 0.75rem;
-    }
+    /* ─── Social links ────────────────────────────────────── */
+    .creator-socials { display: flex; gap: 0.75rem; }
 
     .creator-social {
       display: inline-flex;
@@ -487,14 +483,42 @@
       transition: border-color 0.2s, color 0.2s;
     }
 
-    .creator-social:hover {
-      border-color: var(--orange);
-      color: var(--orange);
-    }
-
+    .creator-social:hover { border-color: var(--orange); color: var(--orange); }
     .creator-social svg { width: 12px; height: 12px; }
 
-    /* ─── Brand collab section ────────────────────────────── */
+    /* ─── Additional stats row ────────────────────────────── */
+    .extra-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .extra-stat {
+      background: var(--surface2);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .extra-stat-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      line-height: 1;
+      display: block;
+    }
+
+    .extra-stat-lbl {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.2rem;
+      display: block;
+    }
+
+    /* ─── Brand categories ────────────────────────────────── */
     .collab-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -525,14 +549,10 @@
       transition: transform 0.3s;
     }
 
-    .collab-item:hover {
-      background: var(--surface2);
-      color: var(--white);
-    }
-
+    .collab-item:hover { background: var(--surface2); color: var(--white); }
     .collab-item:hover::before { transform: scaleX(1); }
 
-    /* ─── Contact section ────────────────────────────────── */
+    /* ─── Contact ─────────────────────────────────────────── */
     .mk-contact {
       background: var(--surface);
       border-top: 1px solid var(--border);
@@ -593,10 +613,7 @@
       transition: border-color 0.2s, gap 0.2s;
     }
 
-    .mk-contact-email:hover {
-      border-color: var(--orange);
-      gap: 1.25rem;
-    }
+    .mk-contact-email:hover { border-color: var(--orange); gap: 1.25rem; }
 
     /* ─── Footer ──────────────────────────────────────────── */
     footer {
@@ -622,40 +639,88 @@
       color: #444444;
     }
 
+    /* ─── View distribution histogram ────────────────────── */
+    .dist-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.5rem;
+      height: 120px;
+      padding-bottom: 0;
+    }
+
+    .dist-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+
+    .dist-bar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 90px;
+      width: 100%;
+    }
+
+    .dist-pct {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.7rem;
+      color: var(--orange);
+      margin-bottom: 0.25rem;
+    }
+
+    .dist-bar-outer {
+      width: 100%;
+      background: var(--border);
+      display: flex;
+      align-items: flex-end;
+      height: 70px;
+    }
+
+    .dist-bar-inner {
+      width: 100%;
+      height: 0;
+      background: linear-gradient(to top, var(--orange), var(--orange2));
+      transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .dist-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .dist-count {
+      font-size: 0.5rem;
+      color: #444;
+      text-align: center;
+      margin-top: 0.1rem;
+    }
+
     /* ─── Responsive ──────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 1.25rem 1.5rem; }
-
       .mk-hero { padding: 8rem 1.5rem 3rem; }
-
       .section, .creator-section { padding: 3.5rem 1.5rem; }
-
       .overview-grid { grid-template-columns: 1fr 1fr; }
-
       .creator-block { grid-template-columns: 1fr; }
-
       .creator-photo-wrap img { aspect-ratio: 4 / 3; }
-
       .creator-charts { grid-template-columns: 1fr; }
-
-      .creator-metrics { flex-wrap: wrap; }
-
+      .extra-stats { grid-template-columns: 1fr 1fr; }
       .collab-grid { grid-template-columns: repeat(2, 1fr); }
-
       .divider { margin: 0 1.5rem; }
-
-      footer {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-        padding: 1.5rem;
-      }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ─── Nav ───────────────────────────────────────────── -->
+  <!-- ─── Nav ──────────────────────────────────────────── -->
   <nav>
     <a class="nav-logo" href="index.html">NYS<span>T</span>ERYS</a>
     <button class="nav-download" id="download-btn" onclick="downloadPDF()">
@@ -666,7 +731,7 @@
     </button>
   </nav>
 
-  <!-- ─── Hero ──────────────────────────────────────────── -->
+  <!-- ─── Hero ─────────────────────────────────────────── -->
   <section class="mk-hero">
     <p class="mk-eyebrow">Nysterys Media LLC &mdash; Confidential</p>
     <h1 class="mk-title">Media <span>Kit</span></h1>
@@ -675,239 +740,62 @@
 
   <div class="divider" role="separator"></div>
 
-  <!-- ─── Combined overview ─────────────────────────────── -->
+  <!-- ─── Roster overview ──────────────────────────────── -->
   <section class="section" id="overview">
     <div class="section-header">
       <span class="section-label">Combined Reach</span>
       <h2 class="section-title">Roster Overview</h2>
     </div>
-    <div class="overview-grid">
-      <div class="overview-stat">
-        <div class="overview-val">1.6M+</div>
-        <div class="overview-lbl">Combined Followers</div>
-      </div>
-      <div class="overview-stat">
-        <div class="overview-val">72M+</div>
-        <div class="overview-lbl">Combined Likes</div>
-      </div>
-      <div class="overview-stat">
-        <div class="overview-val">3</div>
-        <div class="overview-lbl">Platforms</div>
-      </div>
-      <div class="overview-stat">
-        <div class="overview-val">85%</div>
-        <div class="overview-lbl">Female Audience</div>
-      </div>
+    <div class="overview-grid" id="overview-grid">
+      <!-- Populated from data.json -->
     </div>
   </section>
 
   <div class="divider" role="separator"></div>
 
-  <!-- ─── Creator profiles ──────────────────────────────── -->
+  <!-- ─── Creator profiles ─────────────────────────────── -->
   <section class="creator-section" id="creators">
     <div class="section-header">
       <span class="section-label">Our Talent</span>
       <h2 class="section-title">Creator Profiles</h2>
     </div>
-
-    <!-- MYS -->
-    <div class="creator-block" id="block-mys">
-      <div class="creator-photo-wrap">
-        <img src="mys.jpg" alt="Mys" />
-      </div>
-      <div class="creator-details">
-        <p class="creator-tag">Content Creator &mdash; TikTok, Instagram, YouTube</p>
-        <h2 class="creator-name">Mys</h2>
-
-        <!-- Key metrics -->
-        <div class="creator-metrics">
-          <div class="metric">
-            <span class="metric-val">1.4M</span>
-            <span class="metric-lbl">Followers</span>
-          </div>
-          <div class="metric">
-            <span class="metric-val">54.2M</span>
-            <span class="metric-lbl">Likes</span>
-          </div>
-          <div class="metric">
-            <span class="metric-val">13.8%</span>
-            <span class="metric-lbl">Eng. Rate</span>
-          </div>
-          <div class="metric">
-            <span class="metric-val" id="mys-avg-views">—</span>
-            <span class="metric-lbl">Avg. Views</span>
-          </div>
-        </div>
-
-        <p class="creator-bio">
-          Mys is a breakout lifestyle and trend creator with over 1.4 million followers and
-          54 million likes on TikTok. Known for her magnetic energy, swag-forward content,
-          and deeply personal storytelling, she has built one of the most engaged young
-          audiences on the platform.
-        </p>
-
-        <!-- Content categories -->
-        <p class="chart-title" style="margin-bottom: 0.75rem;">Content Categories</p>
-        <div class="tags-wrap" style="margin-bottom: 1.5rem;">
-          <span class="tag tag-orange">Fashion</span>
-          <span class="tag tag-orange">Lifestyle</span>
-          <span class="tag tag-orange">Music</span>
-          <span class="tag tag-orange">Beauty</span>
-          <span class="tag">Teenage</span>
-          <span class="tag">School</span>
-          <span class="tag">Concerts</span>
-        </div>
-
-        <!-- Audience charts -->
-        <div class="creator-charts">
-          <!-- Gender -->
-          <div class="chart-card">
-            <p class="chart-title">Gender Split</p>
-            <div class="donut-wrap">
-              <svg class="donut-svg" viewBox="0 0 36 36" id="mys-donut" aria-label="Gender split" role="img"></svg>
-              <div class="donut-legend" id="mys-gender-legend"></div>
-            </div>
-          </div>
-          <!-- Age -->
-          <div class="chart-card">
-            <p class="chart-title">Age Distribution</p>
-            <div class="bar-rows" id="mys-age-bars"></div>
-          </div>
-          <!-- Countries -->
-          <div class="chart-card">
-            <p class="chart-title">Top Countries</p>
-            <div class="bar-rows" id="mys-country-bars"></div>
-          </div>
-        </div>
-
-        <!-- Socials -->
-        <div class="creator-socials" id="mys-socials"></div>
-      </div>
-    </div>
-
-    <!-- KYM -->
-    <div class="creator-block" id="block-kym">
-      <div class="creator-photo-wrap">
-        <img src="kym.jpg" alt="Kym" />
-      </div>
-      <div class="creator-details">
-        <p class="creator-tag">Content Creator &mdash; TikTok, Instagram, YouTube</p>
-        <h2 class="creator-name">Kym</h2>
-
-        <!-- Key metrics -->
-        <div class="creator-metrics">
-          <div class="metric">
-            <span class="metric-val">224K</span>
-            <span class="metric-lbl">Followers</span>
-          </div>
-          <div class="metric">
-            <span class="metric-val">17.9M</span>
-            <span class="metric-lbl">Likes</span>
-          </div>
-          <div class="metric">
-            <span class="metric-val">11%</span>
-            <span class="metric-lbl">Eng. Rate</span>
-          </div>
-          <div class="metric">
-            <span class="metric-val" id="kym-avg-views">—</span>
-            <span class="metric-lbl">Avg. Views</span>
-          </div>
-        </div>
-
-        <p class="creator-bio">
-          Kym is a lifestyle and fashion creator known for her fit checks, authentic wasian
-          perspective, and JROTC content. With a natural presence on camera and a growing
-          audience, she connects with fans through real, relatable storytelling.
-        </p>
-
-        <!-- Content categories -->
-        <p class="chart-title" style="margin-bottom: 0.75rem;">Content Categories</p>
-        <div class="tags-wrap" style="margin-bottom: 1.5rem;">
-          <span class="tag tag-orange">Fashion</span>
-          <span class="tag tag-orange">Lifestyle</span>
-          <span class="tag tag-orange">Beauty</span>
-          <span class="tag">Teenage</span>
-          <span class="tag">School</span>
-          <span class="tag">College</span>
-          <span class="tag">JROTC</span>
-        </div>
-
-        <!-- Audience charts -->
-        <div class="creator-charts">
-          <!-- Gender -->
-          <div class="chart-card">
-            <p class="chart-title">Gender Split</p>
-            <div class="donut-wrap">
-              <svg class="donut-svg" viewBox="0 0 36 36" id="kym-donut" aria-label="Gender split" role="img"></svg>
-              <div class="donut-legend" id="kym-gender-legend"></div>
-            </div>
-          </div>
-          <!-- Age -->
-          <div class="chart-card">
-            <p class="chart-title">Age Distribution</p>
-            <div class="bar-rows" id="kym-age-bars"></div>
-          </div>
-          <!-- Countries -->
-          <div class="chart-card">
-            <p class="chart-title">Top Countries</p>
-            <div class="bar-rows" id="kym-country-bars"></div>
-          </div>
-        </div>
-
-        <!-- Socials -->
-        <div class="creator-socials" id="kym-socials"></div>
-      </div>
-    </div>
+    <!-- Blocks injected by JS -->
+    <div id="creator-blocks"></div>
   </section>
 
   <div class="divider" role="separator"></div>
 
-  <!-- ─── Brand collaboration categories ───────────────── -->
+  <!-- ─── Brand categories ──────────────────────────────── -->
   <section class="section" id="collabs">
     <div class="section-header">
       <span class="section-label">Partnership Fit</span>
       <h2 class="section-title">Brand Collaboration Categories</h2>
     </div>
-    <div class="collab-grid">
-      <div class="collab-item">Music</div>
-      <div class="collab-item">Labels</div>
-      <div class="collab-item">Bands</div>
-      <div class="collab-item">Artists</div>
-      <div class="collab-item">Beauty</div>
-      <div class="collab-item">Fashion</div>
-      <div class="collab-item">Clothing</div>
-      <div class="collab-item">Accessories</div>
-      <div class="collab-item">Shoes</div>
-      <div class="collab-item">Apparel</div>
-      <div class="collab-item">Make-Up</div>
-      <div class="collab-item">Lifestyle</div>
+    <div class="collab-grid" id="collab-grid">
+      <!-- Populated from data.json -->
     </div>
   </section>
 
   <div class="divider" role="separator"></div>
 
-  <!-- ─── Contact ───────────────────────────────────────── -->
+  <!-- ─── Contact ──────────────────────────────────────── -->
   <section class="mk-contact">
     <p class="mk-contact-label">Start a Conversation</p>
     <h2 class="mk-contact-heading">Ready to Collaborate?</h2>
     <p class="mk-contact-sub">Reach out with your campaign brief and we will get back to you directly.</p>
-    <a class="mk-contact-email" href="#" id="mk-email-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20" aria-hidden="true">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </a>
+    <a class="mk-contact-email" href="#" id="mk-email-link"></a>
   </section>
 
-  <!-- ─── Footer ────────────────────────────────────────── -->
+  <!-- ─── Footer ───────────────────────────────────────── -->
   <footer>
     <div class="footer-logo">NYS<span>T</span>ERYS MEDIA LLC</div>
     <div class="footer-copy">&copy; 2026 Nysterys Media LLC. Confidential &mdash; not for redistribution.</div>
   </footer>
 
-  <!-- ─── Scripts ───────────────────────────────────────── -->
+  <!-- ─── Scripts ──────────────────────────────────────── -->
 
   <script>
-    // Email assembled in JS only — never in HTML source
+    // Email obfuscation — assembled in JS only
     (function() {
       var parts = ['inquiries', '@', 'nysterys', '.', 'com'];
       var email = parts.join('');
@@ -928,13 +816,26 @@
 
     var GENDER_COLORS = ['#ff5c00', '#ff8c42', '#444444'];
 
+    // Format large numbers for display
+    function fmtNum(n) {
+      if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+      if (n >= 1000)    return (n / 1000).toFixed(0) + 'K';
+      return n.toString();
+    }
+
+    function fmtSec(s) {
+      var m = Math.floor(s / 60);
+      var sec = Math.round(s % 60);
+      return m > 0 ? m + 'm ' + sec + 's' : sec + 's';
+    }
+
     function buildDonut(svgId, data) {
       var svg = document.getElementById(svgId);
+      if (!svg) return;
       var cx = 18, cy = 18, r = 15.9155;
       var circ = 2 * Math.PI * r;
       svg.innerHTML = '';
 
-      // Background track
       var bg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       bg.setAttribute('cx', cx); bg.setAttribute('cy', cy); bg.setAttribute('r', r);
       bg.setAttribute('fill', 'none'); bg.setAttribute('stroke', '#1e1e1e');
@@ -943,9 +844,9 @@
 
       var offset = 0;
       data.forEach(function(seg, i) {
-        var frac  = seg.value / 100;
-        var dash  = frac * circ;
-        var gap   = circ - dash;
+        var frac = seg.value / 100;
+        var dash = frac * circ;
+        var gap  = circ - dash;
         var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         c.setAttribute('cx', cx); c.setAttribute('cy', cy); c.setAttribute('r', r);
         c.setAttribute('fill', 'none');
@@ -960,6 +861,7 @@
 
     function buildGenderLegend(elId, data) {
       var el = document.getElementById(elId);
+      if (!el) return;
       el.innerHTML = data.map(function(seg, i) {
         return '<div class="legend-row">'
           + '<div class="legend-left">'
@@ -971,9 +873,11 @@
       }).join('');
     }
 
-    function buildBarRows(elId, data, isCountry) {
-      var max = isCountry ? data[0].value : Math.max.apply(null, data.map(function(d) { return d.value; }));
+    function buildBarRows(elId, data) {
+      var max = data[0].value;
+      data.forEach(function(d) { if (d.value > max) max = d.value; });
       var el = document.getElementById(elId);
+      if (!el) return;
       el.innerHTML = data.map(function(d) {
         var w = (d.value / max) * 100;
         return '<div class="bar-row">'
@@ -986,27 +890,130 @@
       }).join('');
     }
 
-    function buildSocials(elId, socials) {
+    function buildDistChart(elId, data) {
       var el = document.getElementById(elId);
-      el.innerHTML = Object.entries(socials).map(function(e) {
+      if (!el) return;
+      var maxPct = Math.max.apply(null, data.map(function(d) { return d.pct; }));
+      el.innerHTML = '<div class="dist-chart">'
+        + data.map(function(d) {
+            var h = (d.pct / maxPct) * 100;
+            return '<div class="dist-col">'
+              + '<div class="dist-bar-wrap">'
+              +   '<div class="dist-pct">' + d.pct + '%</div>'
+              +   '<div class="dist-bar-outer">'
+              +     '<div class="dist-bar-inner" data-height="' + h + '"></div>'
+              +   '</div>'
+              + '</div>'
+              + '<div class="dist-label">' + d.label + '</div>'
+              + '<div class="dist-count">' + d.count + ' videos</div>'
+              + '</div>';
+          }).join('')
+        + '</div>';
+    }
+
+    // Build a full creator block HTML string
+    function buildCreatorBlock(creator) {
+      var s = creator.tiktokStats;
+      var socialsHtml = Object.entries(creator.socials).map(function(e) {
         return '<a href="' + e[1] + '" target="_blank" rel="noopener noreferrer" class="creator-social">'
           + ICONS[e[0]] + ' ' + e[0].toUpperCase() + '</a>';
       }).join('');
+
+      var tagsHtml = creator.contentCategories.map(function(cat) {
+        return '<span class="tag">' + cat + '</span>';
+      }).join('');
+
+      return '<div class="creator-block">'
+
+        // Photo
+        + '<div class="creator-photo-wrap">'
+        +   '<img src="' + creator.photo + '" alt="' + creator.name + '" />'
+        + '</div>'
+
+        // Details
+        + '<div class="creator-details">'
+        +   '<p class="creator-tag">Content Creator &mdash; TikTok, Instagram, YouTube</p>'
+        +   '<h2 class="creator-name">' + creator.name
+        +     ' <span style="font-size:0.4em;color:var(--orange);letter-spacing:0.05em;">@' + creator.tiktokHandle + '</span>'
+        +   '</h2>'
+
+        // Key metrics — now shows avg AND median views
+        +   '<div class="creator-metrics">'
+        +     '<div class="metric"><span class="metric-val">' + creator.followers + '</span><span class="metric-lbl">Followers</span></div>'
+        +     '<div class="metric"><span class="metric-val">' + creator.likes + '</span><span class="metric-lbl">Total Likes</span></div>'
+        +     '<div class="metric"><span class="metric-val">' + creator.engagementRate + '</span><span class="metric-lbl">Eng. Rate</span></div>'
+        +     '<div class="metric"><span class="metric-val">' + fmtNum(s.avgViewsPerVideo) + '</span><span class="metric-lbl">Avg Views</span></div>'
+        +     '<div class="metric"><span class="metric-val">' + fmtNum(s.medianViewsPerVideo) + '</span><span class="metric-lbl">Median Views</span></div>'
+        +   '</div>'
+
+        // Bio
+        +   '<p class="creator-bio">' + creator.bio + '</p>'
+
+        // Extra stats
+        +   '<div class="extra-stats">'
+        +     '<div class="extra-stat"><span class="extra-stat-val">' + fmtNum(s.allTimeViews) + '</span><span class="extra-stat-lbl">All-Time Views</span></div>'
+        +     '<div class="extra-stat"><span class="extra-stat-val">' + s.totalVideos.toLocaleString() + '</span><span class="extra-stat-lbl">Total Videos</span></div>'
+        +     '<div class="extra-stat"><span class="extra-stat-val">' + fmtSec(s.avgWatchTimeSec) + '</span><span class="extra-stat-lbl">Avg Watch Time</span></div>'
+        +   '</div>'
+
+        // Content categories
+        +   '<p class="chart-title" style="margin-bottom:0.75rem;">Content Categories</p>'
+        +   '<div class="tags-wrap">' + tagsHtml + '</div>'
+
+        // Audience charts — top row
+        +   '<div class="creator-charts-wide">'
+        +     '<div class="chart-card">'
+        +       '<p class="chart-title">Gender Split</p>'
+        +       '<div class="donut-wrap">'
+        +         '<svg class="donut-svg" viewBox="0 0 36 36" id="donut-' + creator.id + '" role="img" aria-label="Gender split"></svg>'
+        +         '<div class="donut-legend" id="legend-' + creator.id + '"></div>'
+        +       '</div>'
+        +     '</div>'
+        +     '<div class="chart-card">'
+        +       '<p class="chart-title">Age Distribution</p>'
+        +       '<div class="bar-rows" id="age-' + creator.id + '"></div>'
+        +     '</div>'
+        +     '<div class="chart-card">'
+        +       '<p class="chart-title">Top Countries</p>'
+        +       '<div class="bar-rows" id="countries-' + creator.id + '"></div>'
+        +     '</div>'
+        +   '</div>'
+
+        // View distribution — full width below
+        +   '<div class="chart-card" style="margin-bottom:2rem;">'
+        +     '<p class="chart-title">View Distribution &mdash; % of Videos by View Count Bucket</p>'
+        +     '<div id="dist-' + creator.id + '"></div>'
+        +   '</div>'
+
+        // Social links + SocialBlade
+        +   '<div class="creator-socials">'
+        +     socialsHtml
+        +     '<a href="https://socialblade.com/tiktok/user/' + creator.tiktokHandle + '" target="_blank" rel="noopener noreferrer" class="creator-social">'
+        +       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>'
+        +       ' SOCIALBLADE'
+        +     '</a>'
+        +   '</div>'
+
+        + '</div>'
+      + '</div>';
     }
 
-    // Animate bars into view
+    // Intersection observer for bar animation (horizontal and vertical)
     var barObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           entry.target.querySelectorAll('.bar-fill').forEach(function(bar) {
             bar.style.width = bar.dataset.width + '%';
           });
+          entry.target.querySelectorAll('.dist-bar-inner').forEach(function(bar) {
+            bar.style.height = bar.dataset.height + '%';
+          });
           barObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
 
-    // Fade in blocks on scroll
+    // Intersection observer for fade-in
     var fadeObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
@@ -1014,36 +1021,60 @@
           entry.target.style.transform = 'translateY(0)';
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
 
-    // Load data and render
+    // Load everything from data.json
     fetch('data.json')
       .then(function(r) { return r.json(); })
       .then(function(data) {
-        data.roster.forEach(function(creator) {
-          var id = creator.id;
 
-          // Avg views — show if present in data, otherwise dash
-          var avgEl = document.getElementById(id + '-avg-views');
-          if (avgEl && creator.avgViews) avgEl.textContent = creator.avgViews;
+        // Overview stats
+        var overviewGrid = document.getElementById('overview-grid');
+        if (overviewGrid) {
+          overviewGrid.innerHTML = data.mediaKit.rosterOverview.map(function(s) {
+            return '<div class="overview-stat">'
+              + '<div class="overview-val">' + s.value + '</div>'
+              + '<div class="overview-lbl">' + s.label + '</div>'
+              + '</div>';
+          }).join('');
+        }
 
-          // Charts
-          buildDonut(id + '-donut', creator.audience.gender);
-          buildGenderLegend(id + '-gender-legend', creator.audience.gender);
-          buildBarRows(id + '-age-bars', creator.audience.age, false);
-          buildBarRows(id + '-country-bars', creator.audience.topCountries, true);
-          buildSocials(id + '-socials', creator.socials);
-        });
+        // Brand categories
+        var collabGrid = document.getElementById('collab-grid');
+        if (collabGrid) {
+          collabGrid.innerHTML = data.mediaKit.brandCategories.map(function(cat) {
+            return '<div class="collab-item">' + cat + '</div>';
+          }).join('');
+        }
 
-        // Observe chart cards for bar animation
+        // Creator blocks
+        var blocksEl = document.getElementById('creator-blocks');
+        if (blocksEl) {
+          // Render Mys first (larger audience), then Kym
+          var ordered = data.roster.slice().sort(function(a, b) {
+            return b.tiktokStats.followers - a.tiktokStats.followers;
+          });
+
+          blocksEl.innerHTML = ordered.map(buildCreatorBlock).join('');
+
+          // Now build charts (DOM must exist first)
+          ordered.forEach(function(creator) {
+            buildDonut('donut-' + creator.id, creator.audience.gender);
+            buildGenderLegend('legend-' + creator.id, creator.audience.gender);
+            buildBarRows('age-' + creator.id, creator.audience.age);
+            buildBarRows('countries-' + creator.id, creator.audience.topCountries);
+            buildDistChart('dist-' + creator.id, creator.tiktokStats.viewDistribution);
+          });
+        }
+
+        // Attach observers
         document.querySelectorAll('.chart-card').forEach(function(card) {
           barObserver.observe(card);
         });
 
-        // Fade in creator blocks
         document.querySelectorAll('.creator-block, .overview-stat, .collab-item').forEach(function(el) {
           el.style.opacity = '0';
-          el.style.transform = 'translateY(24px)';
+          el.style.transform = 'translateY(20px)';
           el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
           fadeObserver.observe(el);
         });
@@ -1055,373 +1086,273 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <script>
+    function fmtNumPdf(n) {
+      if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+      if (n >= 1000)    return Math.round(n / 1000) + 'K';
+      return n.toString();
+    }
+
+    function fmtSecPdf(s) {
+      var m = Math.floor(s / 60);
+      var sec = Math.round(s % 60);
+      return m > 0 ? m + 'm ' + sec + 's' : sec + 's';
+    }
+
     function downloadPDF() {
       var btn = document.getElementById('download-btn');
       btn.textContent = 'Generating...';
       btn.disabled = true;
 
+      // Fetch fresh data then generate PDF
+      fetch('data.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) { generatePDF(data, btn); })
+        .catch(function(err) {
+          console.error(err);
+          btn.textContent = 'Error — try again';
+          btn.disabled = false;
+        });
+    }
+
+    function generatePDF(data, btn) {
       var doc = new window.jspdf.jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-      var W = 210, H = 297;
-      var margin = 18;
-      var col = margin;
+      var W = 210, H = 297, margin = 18;
       var y = 0;
 
-      // ── Helpers ───────────────────────────────────────────
-      function hex2rgb(hex) {
-        var r = parseInt(hex.slice(1,3),16);
-        var g = parseInt(hex.slice(3,5),16);
-        var b = parseInt(hex.slice(5,7),16);
-        return [r, g, b];
-      }
-      function setOrange() { doc.setTextColor(255, 92, 0); }
-      function setWhite()  { doc.setTextColor(245, 245, 245); }
-      function setMuted()  { doc.setTextColor(136, 136, 136); }
-      function setDark()   { doc.setTextColor(40, 40, 40); }
-      function newPage() {
-        doc.addPage();
-        // Dark background
-        doc.setFillColor(8, 8, 8);
-        doc.rect(0, 0, W, H, 'F');
-        y = margin;
-      }
+      function bg() { doc.setFillColor(8,8,8); doc.rect(0,0,W,H,'F'); }
+      function orange()  { doc.setTextColor(255,92,0); }
+      function white()   { doc.setTextColor(245,245,245); }
+      function muted()   { doc.setTextColor(136,136,136); }
+      function orangeBar(yy, h) { doc.setFillColor(255,92,0); doc.rect(0,yy,W,h,'F'); }
+      function divLine(yy) { doc.setFillColor(255,92,0); doc.rect(margin,yy,W-margin*2,0.3,'F'); }
+      function newPage() { doc.addPage(); bg(); y = margin; }
 
-      // ── Cover page ─────────────────────────────────────────
-      doc.setFillColor(8, 8, 8);
-      doc.rect(0, 0, W, H, 'F');
+      // ── Cover ──────────────────────────────────────────
+      bg();
+      orangeBar(0, 3);
 
-      // Orange accent bar top
-      doc.setFillColor(255, 92, 0);
-      doc.rect(0, 0, W, 3, 'F');
-
-      y = 60;
-      setMuted();
-      doc.setFontSize(7);
-      doc.setFont('helvetica', 'normal');
+      y = 55;
+      muted(); doc.setFontSize(7); doc.setFont('helvetica','normal');
       doc.text('NYSTERYS MEDIA LLC — CONFIDENTIAL', margin, y);
 
       y += 14;
-      setOrange();
-      doc.setFontSize(48);
-      doc.setFont('helvetica', 'bold');
+      orange(); doc.setFontSize(52); doc.setFont('helvetica','bold');
       doc.text('MEDIA', margin, y);
+      y += 30;
+      white(); doc.text('KIT', margin, y);
 
-      y += 28;
-      setWhite();
-      doc.text('KIT', margin, y);
+      y += 14;
+      divLine(y); y += 10;
 
-      y += 16;
-      doc.setFillColor(255, 92, 0);
-      doc.rect(margin, y, 40, 0.5, 'F');
-
-      y += 12;
-      setMuted();
-      doc.setFontSize(10);
-      doc.setFont('helvetica', 'italic');
+      muted(); doc.setFontSize(10); doc.setFont('helvetica','italic');
       doc.text('Private management for creators who move culture.', margin, y);
+      y += 7;
+      doc.setFontSize(8); doc.setFont('helvetica','normal');
+      doc.text('Audience data, creator profiles, and partnership categories for brand collaboration inquiries.', margin, y);
 
-      y += 20;
-      doc.setFontSize(8);
-      doc.setFont('helvetica', 'normal');
-      doc.text('Audience data, creator profiles, and partnership categories', margin, y);
-      y += 5;
-      doc.text('for brand collaboration inquiries.', margin, y);
-
-      // Combined stats at bottom of cover
-      y = H - 60;
-      var stats = [
-        { val: '1.6M+', lbl: 'Combined Followers' },
-        { val: '72M+',  lbl: 'Combined Likes' },
-        { val: '85%',   lbl: 'Female Audience' },
-        { val: '3',     lbl: 'Platforms' }
-      ];
-      var statW = (W - margin * 2) / stats.length;
-      stats.forEach(function(s, i) {
-        var x = margin + i * statW;
-        // Thin orange top line
-        doc.setFillColor(255, 92, 0);
-        doc.rect(x, y - 2, statW - 2, 0.4, 'F');
-        setOrange();
-        doc.setFontSize(18);
-        doc.setFont('helvetica', 'bold');
-        doc.text(s.val, x, y + 8);
-        setMuted();
-        doc.setFontSize(6.5);
-        doc.setFont('helvetica', 'normal');
-        doc.text(s.lbl.toUpperCase(), x, y + 14);
+      // Cover stats
+      y = H - 65;
+      var ovStats = data.mediaKit.rosterOverview;
+      var stW = (W - margin * 2) / ovStats.length;
+      ovStats.forEach(function(s, i) {
+        var x = margin + i * stW;
+        doc.setFillColor(255,92,0); doc.rect(x, y-2, stW-2, 0.3, 'F');
+        orange(); doc.setFontSize(18); doc.setFont('helvetica','bold');
+        doc.text(s.value, x, y+9);
+        muted(); doc.setFontSize(6); doc.setFont('helvetica','normal');
+        doc.text(s.label.toUpperCase(), x, y+15);
       });
 
-      // Orange bottom bar
-      doc.setFillColor(255, 92, 0);
-      doc.rect(0, H - 3, W, 3, 'F');
+      orangeBar(H-3, 3);
+      muted(); doc.setFontSize(6);
+      doc.text('NYSTERYS MEDIA LLC — CONFIDENTIAL', margin, H-7);
+      doc.text('nysterys.com', W-margin-doc.getTextWidth('nysterys.com'), H-7);
 
-      // ── Creator pages ──────────────────────────────────────
-      var creators = [
-        {
-          name: 'Mys',
-          tag: 'Content Creator — TikTok, Instagram, YouTube',
-          bio: 'Breakout lifestyle and trend creator with over 1.4M followers and 54M likes on TikTok. Known for magnetic energy, swag-forward content, and deeply personal storytelling.',
-          metrics: [
-            { val: '1.4M',  lbl: 'Followers' },
-            { val: '54.2M', lbl: 'Likes' },
-            { val: '13.8%', lbl: 'Engagement Rate' },
-            { val: '—',     lbl: 'Avg. Views' }
-          ],
-          categories: ['Fashion', 'Lifestyle', 'Music', 'Beauty', 'Teenage', 'School', 'Concerts'],
-          gender: [{ label: 'Female', value: 85 }, { label: 'Male', value: 14 }, { label: 'Other', value: 1 }],
-          age: [{ label: '18-24', value: 40.5 }, { label: '25-34', value: 26.3 }, { label: '35-44', value: 18.3 }, { label: '45-54', value: 9.9 }, { label: '55+', value: 5.0 }],
-          countries: [{ label: 'United States', value: 30.5 }, { label: 'United Kingdom', value: 6.4 }, { label: 'Canada', value: 6.0 }, { label: 'Philippines', value: 3.5 }, { label: 'Australia', value: 3.4 }]
-        },
-        {
-          name: 'Kym',
-          tag: 'Content Creator — TikTok, Instagram, YouTube',
-          bio: 'Lifestyle and fashion creator known for fit checks, authentic wasian perspective, and JROTC content. Natural presence on camera with a growing, highly engaged audience.',
-          metrics: [
-            { val: '224K', lbl: 'Followers' },
-            { val: '17.9M', lbl: 'Likes' },
-            { val: '11%',  lbl: 'Engagement Rate' },
-            { val: '—',    lbl: 'Avg. Views' }
-          ],
-          categories: ['Fashion', 'Lifestyle', 'Beauty', 'Teenage', 'School', 'College', 'JROTC'],
-          gender: [{ label: 'Female', value: 85 }, { label: 'Male', value: 14 }, { label: 'Other', value: 1 }],
-          age: [{ label: '18-24', value: 40.5 }, { label: '25-34', value: 26.3 }, { label: '35-44', value: 18.3 }, { label: '45-54', value: 9.9 }, { label: '55+', value: 5.0 }],
-          countries: [{ label: 'United States', value: 30.5 }, { label: 'United Kingdom', value: 6.4 }, { label: 'Canada', value: 6.0 }, { label: 'Philippines', value: 3.5 }, { label: 'Australia', value: 3.4 }]
-        }
-      ];
+      // ── One page per creator ───────────────────────────
+      var ordered = data.roster.slice().sort(function(a,b) {
+        return b.tiktokStats.followers - a.tiktokStats.followers;
+      });
 
-      creators.forEach(function(creator) {
+      ordered.forEach(function(creator) {
+        var s = creator.tiktokStats;
         newPage();
+        orangeBar(0, 3);
 
-        // Orange top bar
-        doc.setFillColor(255, 92, 0);
-        doc.rect(0, 0, W, 3, 'F');
-
-        // Creator name
-        setOrange();
-        doc.setFontSize(7);
-        doc.setFont('helvetica', 'normal');
+        orange(); doc.setFontSize(7); doc.setFont('helvetica','normal');
         doc.text('CREATOR PROFILE', margin, y);
 
         y += 10;
-        setWhite();
-        doc.setFontSize(36);
-        doc.setFont('helvetica', 'bold');
+        white(); doc.setFontSize(36); doc.setFont('helvetica','bold');
         doc.text(creator.name.toUpperCase(), margin, y);
+        orange(); doc.setFontSize(14);
+        doc.text('@' + creator.tiktokHandle, margin + doc.setFontSize(36) || 0, y);
+
+        // Re-draw handle properly
+        var nameW = doc.getStringUnitWidth(creator.name.toUpperCase()) * 36 / doc.internal.scaleFactor;
+        white(); doc.setFontSize(36); doc.setFont('helvetica','bold');
+        doc.text(creator.name.toUpperCase(), margin, y);
+        orange(); doc.setFontSize(13); doc.setFont('helvetica','normal');
+        doc.text(' @' + creator.tiktokHandle, margin + nameW + 2, y);
 
         y += 5;
-        setMuted();
-        doc.setFontSize(7);
-        doc.setFont('helvetica', 'normal');
-        doc.text(creator.tag, margin, y);
+        muted(); doc.setFontSize(7);
+        doc.text('Content Creator — TikTok, Instagram, YouTube', margin, y);
 
-        // Divider line
-        y += 6;
-        doc.setFillColor(255, 92, 0);
-        doc.rect(margin, y, W - margin * 2, 0.3, 'F');
-        y += 8;
+        y += 7; divLine(y); y += 9;
 
-        // Metrics row
-        var mW = (W - margin * 2) / creator.metrics.length;
-        creator.metrics.forEach(function(m, i) {
+        // Key metrics
+        var metrics = [
+          { val: creator.followers, lbl: 'Followers' },
+          { val: creator.likes, lbl: 'Total Likes' },
+          { val: creator.engagementRate, lbl: 'Eng. Rate' },
+          { val: fmtNumPdf(s.avgViewsPerVideo), lbl: 'Avg Views/Video' }
+        ];
+        var mW = (W - margin * 2) / metrics.length;
+        metrics.forEach(function(m, i) {
           var x = margin + i * mW;
-          doc.setFillColor(255, 92, 0);
-          doc.rect(x, y - 1, mW - 3, 0.3, 'F');
-          setOrange();
-          doc.setFontSize(16);
-          doc.setFont('helvetica', 'bold');
-          doc.text(m.val, x, y + 8);
-          setMuted();
-          doc.setFontSize(6);
-          doc.setFont('helvetica', 'normal');
-          doc.text(m.lbl.toUpperCase(), x, y + 13);
+          doc.setFillColor(255,92,0); doc.rect(x, y-1, mW-3, 0.3, 'F');
+          orange(); doc.setFontSize(16); doc.setFont('helvetica','bold');
+          doc.text(m.val, x, y+9);
+          muted(); doc.setFontSize(5.5); doc.setFont('helvetica','normal');
+          doc.text(m.lbl.toUpperCase(), x, y+14);
         });
-
         y += 22;
 
+        // Extra stats row
+        var extras = [
+          { val: fmtNumPdf(s.allTimeViews), lbl: 'All-Time Views' },
+          { val: s.totalVideos.toLocaleString(), lbl: 'Total Videos' },
+          { val: fmtSecPdf(s.avgWatchTimeSec), lbl: 'Avg Watch Time' }
+        ];
+        var eW = (W - margin * 2) / extras.length;
+        extras.forEach(function(e, i) {
+          var x = margin + i * eW;
+          doc.setFillColor(22,22,22); doc.rect(x, y, eW-2, 10, 'F');
+          white(); doc.setFontSize(10); doc.setFont('helvetica','bold');
+          doc.text(e.val, x+3, y+7);
+          muted(); doc.setFontSize(5); doc.setFont('helvetica','normal');
+          doc.text(e.lbl.toUpperCase(), x+3, y+11);
+        });
+        y += 16;
+
         // Bio
-        setWhite();
-        doc.setFontSize(8.5);
-        doc.setFont('helvetica', 'normal');
+        white(); doc.setFontSize(8); doc.setFont('helvetica','normal');
         var bioLines = doc.splitTextToSize(creator.bio, W - margin * 2);
         doc.text(bioLines, margin, y);
-        y += bioLines.length * 5 + 8;
+        y += bioLines.length * 4.5 + 6;
 
         // Content categories
-        setOrange();
-        doc.setFontSize(6.5);
-        doc.setFont('helvetica', 'normal');
-        doc.text('CONTENT CATEGORIES', margin, y);
+        orange(); doc.setFontSize(6); doc.text('CONTENT CATEGORIES', margin, y);
         y += 5;
-        var catX = margin;
-        creator.categories.forEach(function(cat) {
+        var cx = margin;
+        creator.contentCategories.forEach(function(cat) {
           var tw = doc.getTextWidth(cat.toUpperCase()) + 6;
-          if (catX + tw > W - margin) { catX = margin; y += 7; }
-          doc.setDrawColor(255, 92, 0);
-          doc.setLineWidth(0.2);
-          doc.rect(catX, y - 3.5, tw, 5.5);
-          setMuted();
-          doc.setFontSize(6);
-          doc.text(cat.toUpperCase(), catX + 3, y + 0.5);
-          catX += tw + 3;
+          if (cx + tw > W - margin) { cx = margin; y += 7; }
+          doc.setDrawColor(255,92,0); doc.setLineWidth(0.2);
+          doc.rect(cx, y-4, tw, 5.5);
+          muted(); doc.setFontSize(6);
+          doc.text(cat.toUpperCase(), cx+3, y+0.5);
+          cx += tw + 3;
         });
         y += 12;
 
-        // Audience section header
-        doc.setFillColor(255, 92, 0);
-        doc.rect(margin, y, W - margin * 2, 0.3, 'F');
-        y += 6;
-        setOrange();
-        doc.setFontSize(6.5);
-        doc.text('AUDIENCE INSIGHTS', margin, y);
-        y += 8;
+        divLine(y); y += 7;
+        orange(); doc.setFontSize(6.5); doc.text('AUDIENCE INSIGHTS', margin, y);
+        y += 9;
 
-        // Three columns: gender | age | countries
-        var colW = (W - margin * 2 - 8) / 3;
-        var col1 = margin;
-        var col2 = margin + colW + 4;
-        var col3 = margin + (colW + 4) * 2;
-        var rowStart = y;
+        // Three-column: gender | age | countries
+        var colW3 = (W - margin * 2 - 8) / 3;
+        var c1 = margin, c2 = margin + colW3 + 4, c3 = margin + (colW3 + 4) * 2;
+        var rowY = y;
 
-        // Gender column
-        setMuted();
-        doc.setFontSize(6);
-        doc.text('GENDER SPLIT', col1, rowStart);
-        var gy = rowStart + 6;
-        creator.gender.forEach(function(seg, i) {
+        // Gender
+        muted(); doc.setFontSize(5.5); doc.text('GENDER SPLIT', c1, rowY);
+        var gy = rowY + 7;
+        creator.audience.gender.forEach(function(seg, i) {
           var colors = [[255,92,0],[255,140,66],[68,68,68]];
-          var rgb = colors[i] || [68,68,68];
-          doc.setFillColor(rgb[0], rgb[1], rgb[2]);
-          doc.circle(col1 + 2, gy - 1, 1.5, 'F');
-          setMuted();
-          doc.setFontSize(7);
-          doc.text(seg.label, col1 + 6, gy);
-          setOrange();
-          doc.setFontSize(8);
-          doc.setFont('helvetica', 'bold');
-          doc.text(seg.value + '%', col1 + colW - doc.getTextWidth(seg.value + '%'), gy);
-          doc.setFont('helvetica', 'normal');
+          var rgb = colors[i];
+          doc.setFillColor(rgb[0],rgb[1],rgb[2]);
+          doc.circle(c1+2, gy-1, 1.5, 'F');
+          muted(); doc.setFontSize(7); doc.text(seg.label, c1+6, gy);
+          orange(); doc.setFontSize(8); doc.setFont('helvetica','bold');
+          doc.text(seg.value+'%', c1+colW3-doc.getTextWidth(seg.value+'%'), gy);
+          doc.setFont('helvetica','normal');
           gy += 7;
         });
 
-        // Age column
-        setMuted();
-        doc.setFontSize(6);
-        doc.text('AGE DISTRIBUTION', col2, rowStart);
-        var ay = rowStart + 6;
-        var maxAge = Math.max.apply(null, creator.age.map(function(d){return d.value;}));
-        creator.age.forEach(function(bracket) {
-          setMuted();
-          doc.setFontSize(6.5);
-          doc.text(bracket.label, col2, ay);
-          setWhite();
-          doc.text(bracket.value + '%', col2 + colW - doc.getTextWidth(bracket.value + '%'), ay);
-          // Bar
-          doc.setFillColor(30, 30, 30);
-          doc.rect(col2, ay + 1, colW, 1.5, 'F');
-          doc.setFillColor(255, 92, 0);
-          doc.rect(col2, ay + 1, colW * (bracket.value / maxAge), 1.5, 'F');
+        // Age
+        muted(); doc.setFontSize(5.5); doc.text('AGE DISTRIBUTION', c2, rowY);
+        var ay = rowY + 7;
+        var maxAge = Math.max.apply(null, creator.audience.age.map(function(d){return d.value;}));
+        creator.audience.age.forEach(function(bracket) {
+          muted(); doc.setFontSize(6.5); doc.text(bracket.label, c2, ay);
+          white(); doc.text(bracket.value+'%', c2+colW3-doc.getTextWidth(bracket.value+'%'), ay);
+          doc.setFillColor(30,30,30); doc.rect(c2, ay+1, colW3, 1.5, 'F');
+          doc.setFillColor(255,92,0); doc.rect(c2, ay+1, colW3*(bracket.value/maxAge), 1.5, 'F');
           ay += 7;
         });
 
-        // Countries column
-        setMuted();
-        doc.setFontSize(6);
-        doc.text('TOP COUNTRIES', col3, rowStart);
-        var cy2 = rowStart + 6;
-        var maxCo = creator.countries[0].value;
-        creator.countries.forEach(function(country) {
-          setMuted();
-          doc.setFontSize(6.5);
-          doc.text(country.label, col3, cy2);
-          setOrange();
-          doc.text(country.value + '%', col3 + colW - doc.getTextWidth(country.value + '%'), cy2);
-          doc.setFillColor(30, 30, 30);
-          doc.rect(col3, cy2 + 1, colW, 1.5, 'F');
-          doc.setFillColor(255, 92, 0);
-          doc.rect(col3, cy2 + 1, colW * (country.value / maxCo), 1.5, 'F');
-          cy2 += 7;
+        // Countries
+        muted(); doc.setFontSize(5.5); doc.text('TOP COUNTRIES', c3, rowY);
+        var cy3 = rowY + 7;
+        var maxCo = creator.audience.topCountries[0].value;
+        creator.audience.topCountries.forEach(function(country) {
+          muted(); doc.setFontSize(6.5); doc.text(country.label, c3, cy3);
+          orange(); doc.text(country.value+'%', c3+colW3-doc.getTextWidth(country.value+'%'), cy3);
+          doc.setFillColor(30,30,30); doc.rect(c3, cy3+1, colW3, 1.5, 'F');
+          doc.setFillColor(255,92,0); doc.rect(c3, cy3+1, colW3*(country.value/maxCo), 1.5, 'F');
+          cy3 += 7;
         });
 
-        // Orange bottom bar
-        doc.setFillColor(255, 92, 0);
-        doc.rect(0, H - 3, W, 3, 'F');
-
-        // Page footer
-        setMuted();
-        doc.setFontSize(6);
-        doc.text('NYSTERYS MEDIA LLC — CONFIDENTIAL', margin, H - 7);
-        doc.text('nysterys.com', W - margin - doc.getTextWidth('nysterys.com'), H - 7);
+        orangeBar(H-3, 3);
+        muted(); doc.setFontSize(6);
+        doc.text('NYSTERYS MEDIA LLC — CONFIDENTIAL', margin, H-7);
+        doc.text('nysterys.com', W-margin-doc.getTextWidth('nysterys.com'), H-7);
       });
 
-      // ── Brand categories page ──────────────────────────────
+      // ── Brand categories page ──────────────────────────
       newPage();
+      orangeBar(0, 3);
 
-      doc.setFillColor(255, 92, 0);
-      doc.rect(0, 0, W, 3, 'F');
-
-      setMuted();
-      doc.setFontSize(7);
+      orange(); doc.setFontSize(7); doc.setFont('helvetica','normal');
       doc.text('PARTNERSHIP FIT', margin, y);
       y += 10;
-      setWhite();
-      doc.setFontSize(28);
-      doc.setFont('helvetica', 'bold');
+      white(); doc.setFontSize(28); doc.setFont('helvetica','bold');
       doc.text('BRAND COLLABORATION', margin, y);
       y += 12;
       doc.text('CATEGORIES', margin, y);
-      y += 6;
-      doc.setFillColor(255, 92, 0);
-      doc.rect(margin, y, 40, 0.4, 'F');
-      y += 12;
+      y += 8; divLine(y); y += 12;
 
-      var categories = ['Music', 'Labels', 'Bands', 'Artists', 'Beauty', 'Fashion', 'Clothing', 'Accessories', 'Shoes', 'Apparel', 'Make-Up', 'Lifestyle'];
+      var cats = data.mediaKit.brandCategories;
       var catCols = 3;
-      var catColW = (W - margin * 2 - 8) / catCols;
-      categories.forEach(function(cat, i) {
-        var cx2 = margin + (i % catCols) * (catColW + 4);
-        var cy3 = y + Math.floor(i / catCols) * 16;
-        doc.setFillColor(17, 17, 17);
-        doc.rect(cx2, cy3 - 5, catColW, 12, 'F');
-        doc.setDrawColor(30, 30, 30);
-        doc.setLineWidth(0.2);
-        doc.rect(cx2, cy3 - 5, catColW, 12);
-        doc.setFillColor(255, 92, 0);
-        doc.rect(cx2, cy3 - 5, 2, 12, 'F');
-        setMuted();
-        doc.setFontSize(7.5);
-        doc.setFont('helvetica', 'normal');
-        doc.text(cat.toUpperCase(), cx2 + 6, cy3 + 2);
+      var catW = (W - margin * 2 - 8) / catCols;
+      cats.forEach(function(cat, i) {
+        var cx2 = margin + (i % catCols) * (catW + 4);
+        var cy4 = y + Math.floor(i / catCols) * 16;
+        doc.setFillColor(17,17,17); doc.rect(cx2, cy4-5, catW, 12, 'F');
+        doc.setDrawColor(30,30,30); doc.setLineWidth(0.2); doc.rect(cx2, cy4-5, catW, 12);
+        doc.setFillColor(255,92,0); doc.rect(cx2, cy4-5, 2, 12, 'F');
+        muted(); doc.setFontSize(7.5); doc.setFont('helvetica','normal');
+        doc.text(cat.toUpperCase(), cx2+6, cy4+2);
       });
 
-      y += Math.ceil(categories.length / catCols) * 16 + 16;
+      y += Math.ceil(cats.length / catCols) * 16 + 16;
 
       // Contact block
-      doc.setFillColor(17, 17, 17);
-      doc.rect(margin, y, W - margin * 2, 40, 'F');
-      doc.setFillColor(255, 92, 0);
-      doc.rect(margin, y, 2, 40, 'F');
+      doc.setFillColor(17,17,17); doc.rect(margin, y, W-margin*2, 42, 'F');
+      doc.setFillColor(255,92,0); doc.rect(margin, y, 2, 42, 'F');
+      orange(); doc.setFontSize(7); doc.text('GET IN TOUCH', margin+8, y+10);
+      white(); doc.setFontSize(14); doc.setFont('helvetica','bold');
+      doc.text('Ready to Collaborate?', margin+8, y+20);
+      muted(); doc.setFontSize(8); doc.setFont('helvetica','normal');
+      doc.text('inquiries@nysterys.com', margin+8, y+30);
+      orange(); doc.text('nysterys.com', W-margin-doc.getTextWidth('nysterys.com'), y+30);
 
-      setOrange();
-      doc.setFontSize(7);
-      doc.text('GET IN TOUCH', margin + 8, y + 10);
-      setWhite();
-      doc.setFontSize(14);
-      doc.setFont('helvetica', 'bold');
-      doc.text('Ready to Collaborate?', margin + 8, y + 20);
-      setMuted();
-      doc.setFontSize(8);
-      doc.setFont('helvetica', 'normal');
-      doc.text('inquiries@nysterys.com', margin + 8, y + 30);
-      setOrange();
-      doc.text('nysterys.com', W - margin - doc.getTextWidth('nysterys.com'), y + 30);
+      orangeBar(H-3, 3);
+      muted(); doc.setFontSize(6);
+      doc.text('NYSTERYS MEDIA LLC — CONFIDENTIAL', margin, H-7);
+      doc.text('nysterys.com', W-margin-doc.getTextWidth('nysterys.com'), H-7);
 
-      doc.setFillColor(255, 92, 0);
-      doc.rect(0, H - 3, W, 3, 'F');
-      setMuted();
-      doc.setFontSize(6);
-      doc.text('NYSTERYS MEDIA LLC — CONFIDENTIAL', margin, H - 7);
-      doc.text('nysterys.com', W - margin - doc.getTextWidth('nysterys.com'), H - 7);
-
-      // Save
       doc.save('Nysterys-Media-Kit-2026.pdf');
 
       btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download PDF';
