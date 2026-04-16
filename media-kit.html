@@ -767,6 +767,74 @@
       margin-top: 0.1rem;
     }
 
+    /* ─── Process steps ───────────────────────────────────── */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .process-step {
+      background: var(--surface);
+      padding: 2rem 1.5rem;
+      position: relative;
+    }
+
+    .process-step::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--orange), var(--orange2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .process-step:hover::before {
+      transform: scaleX(1);
+    }
+
+    .process-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: rgba(255, 92, 0, 0.2);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .process-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .process-desc {
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .process-note {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      padding: 1.5rem 2rem;
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .process-note strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
     /* ─── Responsive ──────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 1.25rem 1.5rem; }
@@ -777,6 +845,7 @@
       .creator-photo-wrap img { aspect-ratio: 4 / 3; }
       .creator-charts { grid-template-columns: 1fr; }
       .extra-stats { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
       .philosophy-intro { grid-template-columns: 1fr; }
       .philosophy-cards { grid-template-columns: 1fr; }
       .collab-grid { grid-template-columns: repeat(2, 1fr); }
@@ -851,6 +920,46 @@
         <p class="philosophy-card-label">Creative Freedom</p>
         <p class="philosophy-card-text">We stay away from scripted content and rigid creative briefs. Our followers can tell immediately when something feels off, and that shows in the numbers. The brands we have worked with consistently see the best results when they give us the creative freedom to do it our way.</p>
       </div>
+    </div>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- ─── How we work together ─────────────────────────── -->
+  <section class="section" id="process">
+    <div class="section-header">
+      <span class="section-label">The Process</span>
+      <h2 class="section-title">How We Work Together</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <div class="process-title">Brief</div>
+        <p class="process-desc">You share your campaign brief and objectives with us. We review the fit and confirm the partnership.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <div class="process-title">Draft</div>
+        <p class="process-desc">We create the content and send you a draft for review before anything goes live.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <div class="process-title">Revisions</div>
+        <p class="process-desc">We accommodate up to two rounds of revisions to make sure you are happy with the direction.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <div class="process-title">Payment &amp; Post</div>
+        <p class="process-desc">Payment is expected before or upon posting. Once confirmed, the content goes live and we share the post URL with you.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">05</div>
+        <div class="process-title">Results</div>
+        <p class="process-desc">After seven days we can share full post performance data including views, likes, shares, and reach.</p>
+      </div>
+    </div>
+    <div class="process-note">
+      <strong>Payment:</strong> We accept standard digital payment methods. Payment is due before or upon posting. We do not hold content for unpaid invoices. &nbsp;&nbsp;<strong>Content:</strong> All posted content remains live indefinitely. Content is only removed in the event of non-payment or a breach of agreed terms.
     </div>
   </section>
 
