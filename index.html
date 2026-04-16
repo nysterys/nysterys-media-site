@@ -558,9 +558,6 @@ footer {
   overflow: hidden;
   position: relative;
   transition: border-color .3s;
-  display: block;
-  text-decoration: none;
-  color: inherit;
   cursor: pointer
 }
 
@@ -1273,7 +1270,7 @@ function buildTalentCard(creator) {
   var socials = Object.entries(creator.socials)
     .map(function(entry) { return buildSocialLink(entry[0], entry[1]); })
     .join('');
-  return '<a class="talent-card" href="creator.html?id=' + creator.id + '">' +
+  return '<div class="talent-card" onclick="window.location=\'creator.html?id=' + creator.id + '\'">' +
     '<div class="talent-photo">' +
       '<img src="' + creator.photo + '" loading="lazy" decoding="async" alt="' + creator.name + '" />' +
     '</div>' +
@@ -1288,7 +1285,7 @@ function buildTalentCard(creator) {
       '<p class="talent-bio">' + creator.bio + '</p>' +
       '<div class="talent-socials">' + socials + '</div>' +
     '</div>' +
-  '</a>';
+  '</div>';
 }
 
 fetch('data.json')
@@ -1307,6 +1304,12 @@ fetch('data.json')
     var grid = document.getElementById('roster-grid');
     if (grid) {
       grid.innerHTML = data.roster.map(buildTalentCard).join('');
+      grid.querySelectorAll('.talent-card').forEach(function(el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(32px)';
+        el.style.transition = 'opacity .7s ease, transform .7s ease';
+        observer.observe(el);
+      });
     }
   })
   .catch(function(err) { console.error('Could not load data.json:', err); });
