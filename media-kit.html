@@ -639,6 +639,71 @@
       color: #444444;
     }
 
+    /* ─── Content philosophy ──────────────────────────────── */
+    .philosophy-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .philosophy-body {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #aaaaaa;
+      margin-bottom: 1.25rem;
+    }
+
+    .philosophy-body:last-child { margin-bottom: 0; }
+
+    .philosophy-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .philosophy-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .philosophy-card:hover {
+      border-color: rgba(255, 92, 0, 0.4);
+    }
+
+    .philosophy-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--orange);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.3s;
+    }
+
+    .philosophy-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .philosophy-card-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .philosophy-card-text {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
     /* ─── View distribution histogram ────────────────────── */
     .dist-chart {
       display: flex;
@@ -712,6 +777,8 @@
       .creator-photo-wrap img { aspect-ratio: 4 / 3; }
       .creator-charts { grid-template-columns: 1fr; }
       .extra-stats { grid-template-columns: 1fr 1fr; }
+      .philosophy-intro { grid-template-columns: 1fr; }
+      .philosophy-cards { grid-template-columns: 1fr; }
       .collab-grid { grid-template-columns: repeat(2, 1fr); }
       .divider { margin: 0 1.5rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
@@ -761,6 +828,30 @@
     </div>
     <!-- Blocks injected by JS -->
     <div id="creator-blocks"></div>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- ─── Content style & philosophy ──────────────────────── -->
+  <section class="section" id="philosophy">
+    <div class="section-header">
+      <span class="section-label">How We Work</span>
+      <h2 class="section-title">Content Style &amp; Philosophy</h2>
+    </div>
+    <div class="philosophy-intro">
+      <p class="philosophy-body">Everything we create starts from the same place: keeping it real. Our audience keeps coming back because what they see is genuinely us. No filters, no scripts, no selling.</p>
+      <p class="philosophy-body">Our videos are rooted in everyday life. Fashion moments, getting ready, days out, things that made us laugh. Our followers chose to be here because it feels like the real thing, and we work hard to keep it that way.</p>
+    </div>
+    <div class="philosophy-cards">
+      <div class="philosophy-card">
+        <p class="philosophy-card-label">Collaborations</p>
+        <p class="philosophy-card-text">When we partner with a brand, it becomes part of the content naturally. Something we wear, use or genuinely enjoy rather than something we announce. That is the only way it works for our audience.</p>
+      </div>
+      <div class="philosophy-card">
+        <p class="philosophy-card-label">Creative Freedom</p>
+        <p class="philosophy-card-text">We stay away from scripted content and rigid creative briefs. Our followers can tell immediately when something feels off, and that shows in the numbers. The brands we have worked with consistently see the best results when they give us the creative freedom to do it our way.</p>
+      </div>
+    </div>
   </section>
 
   <div class="divider" role="separator"></div>
