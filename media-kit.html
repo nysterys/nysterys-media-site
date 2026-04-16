@@ -828,11 +828,40 @@
       font-size: 0.85rem;
       line-height: 1.75;
       color: var(--muted);
+      margin-bottom: 1px;
     }
 
     .process-note strong {
       color: var(--white);
       font-weight: 500;
+    }
+
+    .process-terms {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-top: none;
+    }
+
+    .process-term {
+      background: var(--surface);
+      padding: 1.75rem 2rem;
+    }
+
+    .process-term-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      color: var(--orange);
+      margin-bottom: 0.6rem;
+    }
+
+    .process-term-text {
+      font-size: 0.8rem;
+      line-height: 1.75;
+      color: var(--muted);
     }
 
     /* ─── Responsive ──────────────────────────────────────── */
@@ -846,6 +875,7 @@
       .creator-charts { grid-template-columns: 1fr; }
       .extra-stats { grid-template-columns: 1fr 1fr; }
       .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-terms { grid-template-columns: 1fr; }
       .philosophy-intro { grid-template-columns: 1fr; }
       .philosophy-cards { grid-template-columns: 1fr; }
       .collab-grid { grid-template-columns: repeat(2, 1fr); }
@@ -960,6 +990,20 @@
     </div>
     <div class="process-note">
       <strong>Payment:</strong> We accept standard digital payment methods. Payment is due before or upon posting. We do not hold content for unpaid invoices. &nbsp;&nbsp;<strong>Content:</strong> All posted content remains live indefinitely. Content is only removed in the event of non-payment or a breach of agreed terms.
+    </div>
+    <div class="process-terms">
+      <div class="process-term">
+        <p class="process-term-title">Turnaround</p>
+        <p class="process-term-text">We deliver a first draft within 48 to 96 hours of receiving a complete brief. The brand has 48 hours to review and respond. If no feedback is received within that window, the draft is considered approved and we will proceed to posting.</p>
+      </div>
+      <div class="process-term">
+        <p class="process-term-title">Disclosure</p>
+        <p class="process-term-text">All paid and sponsored content is disclosed in accordance with FTC guidelines. Posts will be clearly labelled as paid partnerships or sponsored content.</p>
+      </div>
+      <div class="process-term">
+        <p class="process-term-title">Usage Rights</p>
+        <p class="process-term-text">All content created remains the intellectual property of the creator. Brands do not receive rights to repost, repurpose, or redistribute the content on any channel without a separate written agreement and applicable fee. Exclusivity arrangements are available and priced on a case by case basis.</p>
+      </div>
     </div>
   </section>
 
