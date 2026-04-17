@@ -3,24 +3,84 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creator Roster — Kym &amp; Mys | Nysterys Media</title>
+  <title>Creator — Nysterys Media</title>
   <meta name="theme-color" content="#080808" />
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" />
 
   <style>
-/* ─── Reset ─────────────────────────────────────────── */
+    /* ─── Reset ─────────────────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     /* ─── Design tokens ──────────────────────────────────── */
+    :root {
+      --black:   #080808;
+      --surface: #111111;
+      --border:  #1e1e1e;
+      --orange:  #ff5c00;
+      --orange2: #ff8c42;
+      --white:   #f5f5f5;
+      --muted:   #888888;
+    }
 
     /* ─── Base ───────────────────────────────────────────── */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
 
     /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.35;
+    }
 
     /* ─── Navigation ─────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3rem;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(8, 8, 8, 0.95), transparent);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--orange);
+    }
 
     .nav-back {
       display: inline-flex;
@@ -182,12 +242,32 @@
     }
 
     /* ─── Divider ─────────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--orange), transparent);
+      margin: 0 3rem;
+      opacity: 0.3;
+    }
 
     /* ─── Audience section ────────────────────────────────── */
     .audience {
       padding: 6rem 3rem 7rem;
       max-width: 1200px;
       margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--orange);
     }
 
     .section-title {
@@ -372,6 +452,30 @@
     }
 
     /* ─── Footer ──────────────────────────────────────────── */
+    footer {
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .footer-logo span {
+      color: var(--orange);
+    }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: #444444;
+    }
 
     .rc-error {
       padding: 4rem;
@@ -380,6 +484,9 @@
 
     /* ─── Responsive ──────────────────────────────────────── */
     @media (max-width: 900px) {
+      nav {
+        padding: 1.25rem 1.5rem;
+      }
 
       .creator-hero {
         grid-template-columns: 1fr;
@@ -409,70 +516,25 @@
         padding: 4rem 1.5rem 5rem;
       }
 
+      .divider {
+        margin: 0 1.5rem;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 1.5rem;
+      }
     }
   </style>
-  <meta name="description" content="Kym and Mys are lifestyle and trend creators managed by Nysterys Media. Combined 1.6M+ followers across TikTok, YouTube, and Instagram." />
-  <meta property="og:title" content="Creator Roster — Kym &amp; Mys | Nysterys Media" />
-  <meta property="og:description" content="Browse Kym and Mys — the Nysterys Media creator roster. View audience stats, content categories, and partnership details." />
-  <meta property="og:image" content="https://nysterys.com/kym.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nysterys.com/creator.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Creator Roster — Kym &amp; Mys | Nysterys Media" />
-  <meta name="twitter:description" content="Browse Kym and Mys — the Nysterys Media creator roster. View audience stats, content categories, and partnership details." />
-  <meta name="twitter:image" content="https://nysterys.com/kym.jpg" />
-  <link rel="canonical" href="https://nysterys.com/creator.html" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "CollectionPage",
-        "@id": "https://nysterys.com/creator.html#webpage",
-        "url": "https://nysterys.com/creator.html",
-        "name": "Creator Roster — Kym & Mys | Nysterys Media",
-        "description": "Kym and Mys are lifestyle and trend creators managed by Nysterys Media.",
-        "isPartOf": { "@id": "https://nysterys.com/#website" }
-      },
-      {
-        "@type": "Person",
-        "@id": "https://nysterys.com/#kym",
-        "name": "Kym",
-        "jobTitle": "Content Creator",
-        "description": "Lifestyle and fashion creator known for fit checks, authentic wasian perspective, and JROTC content.",
-        "affiliation": { "@id": "https://nysterys.com/#organization" },
-        "sameAs": [
-          "https://www.tiktok.com/@kymchi_n_crackers",
-          "https://www.instagram.com/glittery.unicorn.farts/",
-          "https://www.youtube.com/@ShimmieKymmie"
-        ]
-      },
-      {
-        "@type": "Person",
-        "@id": "https://nysterys.com/#mys",
-        "name": "Mys",
-        "jobTitle": "Content Creator",
-        "description": "Breakout lifestyle and trend creator with 1.4M followers and 54.7M likes on TikTok.",
-        "affiliation": { "@id": "https://nysterys.com/#organization" },
-        "sameAs": [
-          "https://www.tiktok.com/@mysthegreat",
-          "https://www.instagram.com/therealmysthegreat/",
-          "https://www.youtube.com/@Mys-The-Great"
-        ]
-      }
-    ]
-  }
-  </script>
-  <link rel="stylesheet" href="global.css" />
-  <script src="icons.js" defer></script>
-  <script src="utils.js"></script>
 </head>
 <body>
 
   <!-- ─── Navigation ──────────────────────────────────────── -->
   <nav>
-    <a class="nav-logo" href="/">NYS<span>T</span>ERYS</a>
-    <a class="nav-back" href="/#roster">
+    <a class="nav-logo" href="index.html">NYS<span>T</span>ERYS</a>
+    <a class="nav-back" href="index.html#roster">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path d="M19 12H5M12 5l-7 7 7 7" />
       </svg>
@@ -483,7 +545,7 @@
   <!-- ─── Creator hero ─────────────────────────────────────── -->
   <section class="creator-hero">
     <div class="hero-photo-wrap">
-      <img id="creator-photo" src="" alt="Creator profile photo" />
+      <img id="creator-photo" src="" alt="" />
       <div class="hero-photo-overlay" aria-hidden="true"></div>
     </div>
     <div class="hero-info">
@@ -541,6 +603,13 @@
   <!-- ─── Scripts ───────────────────────────────────────────── -->
 
   <script>
+    // SVG icons for social platforms
+    var ICONS = {
+      tiktok:    '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>',
+      instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>',
+      youtube:   '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7s-.3-2-1.2-2.8c-1.1-1.2-2.4-1.2-3-1.3C16.6 2.8 12 2.8 12 2.8s-4.6 0-6.8.2c-.6 0-1.9.1-3 1.3C1.3 5 1 7 1 7S.7 9.2.7 11.5v2.1C.7 16 1 18 1 18s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C7.6 22.2 12 22.2 12 22.2s4.6 0 6.8-.3c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.3-2.2.3-4.4v-2.1C23.3 9.2 23 7 23 7zM9.7 15.5V8.4l8.1 3.6-8.1 3.5z"/></svg>'
+    };
+
     // Colors for the gender donut segments
     var GENDER_COLORS = ['#ff5c00', '#ff8c42', '#444444'];
 

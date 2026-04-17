@@ -3,19 +3,21 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Nysterys Media — Creator Talent Management</title>
+  <title>
+   Nysterys Media
+  </title>
   <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
   <link crossorigin="" href="https://fonts.googleapis.com" rel="preconnect"/>
   <meta content="#080808" name="theme-color"/>
-  <meta content="Nysterys Media is a private talent management company representing Kym and Mys — family creators with 1.6M+ combined followers across TikTok, YouTube, and Instagram." name="description"/>
+  <meta content="Nysterys Media is a private talent management company representing an exclusive roster of family creators across TikTok, YouTube, and Instagram." name="description"/>
   <meta content="Nysterys Media" property="og:title"/>
-  <meta content="Private talent management representing Kym and Mys — 1.6M+ combined followers across TikTok, YouTube, and Instagram." property="og:description"/>
+  <meta content="Private talent management representing 1.6M+ followers across TikTok, YouTube, and Instagram." property="og:description"/>
   <meta content="https://nysterys.com/kym.jpg" property="og:image"/>
   <meta content="https://nysterys.com" property="og:url"/>
   <meta content="website" property="og:type"/>
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="Nysterys Media" name="twitter:title"/>
-  <meta content="Private talent management representing Kym and Mys — 1.6M+ combined followers across TikTok, YouTube, and Instagram." name="twitter:description"/>
+  <meta content="Private talent management representing 1.6M+ followers across TikTok, YouTube, and Instagram." name="twitter:description"/>
   <meta content="https://nysterys.com/kym.jpg" name="twitter:image"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet"/>
 
@@ -24,33 +26,12 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebSite",
-        "@id": "https://nysterys.com/#website",
-        "url": "https://nysterys.com",
-        "name": "Nysterys Media",
-        "description": "Private creator talent management representing Kym and Mys.",
-        "publisher": { "@id": "https://nysterys.com/#organization" }
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://nysterys.com/#webpage",
-        "url": "https://nysterys.com",
-        "name": "Nysterys Media — Creator Talent Management",
-        "isPartOf": { "@id": "https://nysterys.com/#website" },
-        "about": { "@id": "https://nysterys.com/#organization" }
-      },
-      {
         "@type": "Organization",
         "@id": "https://nysterys.com/#organization",
         "name": "Nysterys Media LLC",
         "url": "https://nysterys.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://nysterys.com/kym.jpg",
-          "width": 400,
-          "height": 400
-        },
-        "description": "Nysterys Media is a private talent management company representing Kym and Mys — family creators with 1.6M+ combined followers across TikTok, YouTube, and Instagram.",
+        "logo": "https://nysterys.com/kym.jpg",
+        "description": "Nysterys Media is a private talent management company representing an exclusive roster of family creators across TikTok, YouTube, and Instagram.",
         "email": "inquiries@nysterys.com",
         "sameAs": [
           "https://www.tiktok.com/@Nysterys",
@@ -63,7 +44,7 @@
         "@id": "https://nysterys.com/#kym",
         "name": "Kym",
         "jobTitle": "Content Creator",
-        "description": "Lifestyle and fashion creator known for fit checks, authentic wasian perspective, and JROTC content. 224K followers, 17.6M likes.",
+        "description": "Lifestyle and fashion creator known for fit checks, authentic wasian perspective, and JROTC content.",
         "affiliation": { "@id": "https://nysterys.com/#organization" },
         "sameAs": [
           "https://www.tiktok.com/@kymchi_n_crackers",
@@ -76,7 +57,7 @@
         "@id": "https://nysterys.com/#mys",
         "name": "Mys",
         "jobTitle": "Content Creator",
-        "description": "Breakout lifestyle and trend creator with 1.4M followers and 54.7M likes on TikTok.",
+        "description": "Breakout lifestyle and trend creator with over 1.4 million followers and 54 million likes on TikTok.",
         "affiliation": { "@id": "https://nysterys.com/#organization" },
         "sameAs": [
           "https://www.tiktok.com/@mysthegreat",
@@ -88,6 +69,71 @@
   }
   </script>
   <style>
+   *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+:root {
+  --black: #080808;
+  --surface: #111;
+  --border: #1e1e1e;
+  --orange: #ff5c00;
+  --orange2: #ff8c42;
+  --white: #f5f5f5;
+  --muted: #888
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3CsvgviewBox='00256256'xmlns='http://www.w3.org/2000/svg'%3E%3Cfilterid='n'%3E%3CfeTurbulencetype='fractalNoise'baseFrequency='.9'numOctaves='4'stitchTiles='stitch'/%3E%3C/filter%3E%3Crectwidth='100%25'height='100%25'filter='url(%23n)'opacity='.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: .35
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  z-index: 100;
+  background: linear-gradient(to bottom, rgba(8, 8, 8, .95), transparent)
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: .15em;
+  color: var(--white);
+  text-decoration: none
+}
+
+.nav-logo span {
+  color: var(--orange)
+}
+
 .nav-cta {
   font-size: .75rem;
   letter-spacing: .2em;
@@ -96,12 +142,12 @@
   text-decoration: none;
   border: 1px solid var(--orange);
   padding: .5rem 1.25rem;
-  transition: background .2s, color .2s;
+  transition: background .2s, color .2s
 }
 
 .nav-cta:hover {
   background: var(--orange);
-  color: var(--black);
+  color: var(--black)
 }
 
 .hero {
@@ -112,7 +158,7 @@
   align-items: flex-start;
   padding: 8rem 3rem 4rem;
   position: relative;
-  overflow: hidden;
+  overflow: hidden
 }
 
 .logo-mark {
@@ -123,7 +169,7 @@
   top: 50%;
   transform: translateY(-50%);
   opacity: .12;
-  animation: spin 40s linear infinite;
+  animation: spin 40s linear infinite
 }
 
 .logo-mark-inner {
@@ -134,12 +180,12 @@
   top: 50%;
   transform: translateY(-50%);
   opacity: .22;
-  animation: spin 25s linear infinite reverse;
+  animation: spin 25s linear infinite reverse
 }
 
 @keyframes spin {
   to {
-    transform: translateY(-50%) rotate(360deg);
+    transform: translateY(-50%) rotate(360deg)
   }
 }
 
@@ -150,7 +196,7 @@
   color: var(--orange);
   margin-bottom: 1.5rem;
   opacity: 0;
-  animation: fadeUp .8s .2s forwards;
+  animation: fadeUp .8s .2s forwards
 }
 
 .hero-title {
@@ -160,11 +206,11 @@
   letter-spacing: .03em;
   margin-bottom: 1.5rem;
   opacity: 0;
-  animation: fadeUp .8s .4s forwards;
+  animation: fadeUp .8s .4s forwards
 }
 
 .hero-title .accent {
-  color: var(--orange);
+  color: var(--orange)
 }
 
 .hero-tagline {
@@ -175,7 +221,7 @@
   margin-bottom: 3rem;
   max-width: 480px;
   opacity: 0;
-  animation: fadeUp .8s .6s forwards;
+  animation: fadeUp .8s .6s forwards
 }
 
 .hero-cta {
@@ -192,17 +238,17 @@
   padding: 1rem 2rem;
   opacity: 0;
   animation: fadeUp .8s .8s forwards;
-  transition: background .2s, gap .2s;
+  transition: background .2s, gap .2s
 }
 
 .hero-cta:hover {
   background: var(--orange2);
-  gap: 1.25rem;
+  gap: 1.25rem
 }
 
 .hero-cta svg {
   width: 14px;
-  height: 14px;
+  height: 14px
 }
 
 .hero-scroll {
@@ -217,38 +263,45 @@
   text-transform: uppercase;
   color: var(--muted);
   opacity: 0;
-  animation: fadeUp .8s 1.2s forwards;
+  animation: fadeUp .8s 1.2s forwards
 }
 
 .scroll-line {
   width: 40px;
   height: 1px;
   background: var(--orange);
-  animation: scrollPulse 2s infinite;
+  animation: scrollPulse 2s infinite
 }
 
 @keyframes scrollPulse {
 
   0%,
   100% {
-    width: 40px;
+    width: 40px
   }
 
   50% {
-    width: 60px;
+    width: 60px
   }
 }
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(24px)
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0)
   }
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--orange), transparent);
+  margin: 0 3rem;
+  opacity: .3
 }
 
 .about {
@@ -258,7 +311,7 @@
   gap: 4rem;
   align-items: center;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto
 }
 
 .about-label {
@@ -266,7 +319,7 @@
   letter-spacing: .35em;
   text-transform: uppercase;
   color: var(--orange);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem
 }
 
 .about-heading {
@@ -274,24 +327,24 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1;
   letter-spacing: .04em;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem
 }
 
 .about-heading span {
-  color: var(--orange);
+  color: var(--orange)
 }
 
 .about-body {
   font-size: 1rem;
   line-height: 1.8;
   color: #aaa;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem
 }
 
 .about-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1.5rem
 }
 
 .stat {
@@ -299,7 +352,7 @@
   border: 1px solid var(--border);
   padding: 1.75rem;
   position: relative;
-  overflow: hidden;
+  overflow: hidden
 }
 
 .stat::before {
@@ -309,7 +362,7 @@
   left: 0;
   width: 3px;
   height: 100%;
-  background: var(--orange);
+  background: var(--orange)
 }
 
 .stat-number {
@@ -317,26 +370,40 @@
   font-size: 2.5rem;
   color: var(--orange);
   line-height: 1;
-  margin-bottom: .25rem;
+  margin-bottom: .25rem
 }
 
 .stat-label {
   font-size: .7rem;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted)
 }
 
 .services {
   padding: 5rem 3rem 7rem;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 3rem
+}
+
+.section-label {
+  font-size: .65rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--orange)
 }
 
 .section-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: .04em;
+  letter-spacing: .04em
 }
 
 .services-grid {
@@ -344,7 +411,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--border);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border)
 }
 
 .service-card {
@@ -352,7 +419,7 @@
   padding: 2.5rem 2rem;
   transition: background .3s;
   position: relative;
-  overflow: hidden;
+  overflow: hidden
 }
 
 .service-card::after {
@@ -365,35 +432,35 @@
   background: var(--orange);
   transform: scaleX(0);
   transition: transform .3s;
-  transform-origin: left;
+  transform-origin: left
 }
 
 .service-card:hover {
-  background: var(--surface);
+  background: var(--surface)
 }
 
 .service-card:hover::after {
-  transform: scaleX(1);
+  transform: scaleX(1)
 }
 
 .service-icon {
   width: 36px;
   height: 36px;
   margin-bottom: 1.5rem;
-  color: var(--orange);
+  color: var(--orange)
 }
 
 .service-name {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.4rem;
   letter-spacing: .06em;
-  margin-bottom: .75rem;
+  margin-bottom: .75rem
 }
 
 .service-desc {
   font-size: .85rem;
   line-height: 1.7;
-  color: var(--muted);
+  color: var(--muted)
 }
 
 .contact {
@@ -403,7 +470,7 @@
   padding: 7rem 3rem;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: hidden
 }
 
 .contact::before {
@@ -417,7 +484,7 @@
   transform: translate(-50%, -50%);
   pointer-events: none;
   white-space: nowrap;
-  letter-spacing: .1em;
+  letter-spacing: .1em
 }
 
 .contact-label {
@@ -425,7 +492,7 @@
   letter-spacing: .35em;
   text-transform: uppercase;
   color: var(--orange);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem
 }
 
 .contact-heading {
@@ -433,7 +500,7 @@
   font-size: clamp(2.5rem, 6vw, 5rem);
   letter-spacing: .04em;
   line-height: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem
 }
 
 .contact-sub {
@@ -443,7 +510,7 @@
   margin-bottom: 3rem;
   max-width: 440px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto
 }
 
 .contact-email {
@@ -458,18 +525,18 @@
   border-bottom: 1px solid rgba(255, 92, 0, .3);
   padding-bottom: .25rem;
   transition: border-color .2s, gap .2s;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3.5rem
 }
 
 .contact-email:hover {
   border-color: var(--orange);
-  gap: 1.25rem;
+  gap: 1.25rem
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.5rem
 }
 
 .social-link {
@@ -481,31 +548,56 @@
   border: 1px solid var(--border);
   color: var(--muted);
   text-decoration: none;
-  transition: border-color .2s, color .2s, background .2s;
+  transition: border-color .2s, color .2s, background .2s
 }
 
 .social-link:hover {
   border-color: var(--orange);
   color: var(--orange);
-  background: rgba(255, 92, 0, .06);
+  background: rgba(255, 92, 0, .06)
 }
 
 .social-link svg {
   width: 18px;
-  height: 18px;
+  height: 18px
+}
+
+footer {
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border)
+}
+
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: .15em;
+  color: var(--muted)
+}
+
+.footer-logo span {
+  color: var(--orange)
+}
+
+.footer-copy {
+  font-size: .7rem;
+  letter-spacing: .1em;
+  color: #444
 }
 
 .roster {
   padding: 7rem 3rem;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto
 }
 
 .roster-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 3rem
 }
 
 .talent-card {
@@ -514,11 +606,11 @@
   overflow: hidden;
   position: relative;
   transition: border-color .3s;
-  cursor: pointer;
+  cursor: pointer
 }
 
 .talent-card:hover {
-  border-color: var(--orange);
+  border-color: var(--orange)
 }
 
 .talent-card::before {
@@ -532,11 +624,11 @@
   transform: scaleX(0);
   transform-origin: left;
   transition: transform .4s ease;
-  z-index: 2;
+  z-index: 2
 }
 
 .talent-card:hover::before {
-  transform: scaleX(1);
+  transform: scaleX(1)
 }
 
 .talent-photo {
@@ -547,7 +639,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center
 }
 
 .talent-photo img {
@@ -555,11 +647,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform .5s ease;
+  transition: transform .5s ease
 }
 
 .talent-card:hover .talent-photo img {
-  transform: scale(1.04);
+  transform: scale(1.04)
 }
 
 .talent-placeholder {
@@ -570,14 +662,14 @@
   justify-content: center;
   background: linear-gradient(135deg, #141414 0, #1a1a1a 100%);
   position: relative;
-  overflow: hidden;
+  overflow: hidden
 }
 
 .talent-placeholder::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 0, rgba(255, 92, 0, .08) 0, transparent 70%);
+  background: radial-gradient(ellipse at 50% 0, rgba(255, 92, 0, .08) 0, transparent 70%)
 }
 
 .placeholder-initial {
@@ -587,33 +679,33 @@
   letter-spacing: .05em;
   position: relative;
   z-index: 1;
-  user-select: none;
+  user-select: none
 }
 
 .placeholder-ring {
   position: absolute;
   border: 1px solid rgba(255, 92, 0, .1);
-  border-radius: 50%;
+  border-radius: 50%
 }
 
 .placeholder-ring:nth-child(1) {
   width: 200px;
-  height: 200px;
+  height: 200px
 }
 
 .placeholder-ring:nth-child(2) {
   width: 280px;
   height: 280px;
-  border-style: dashed;
+  border-style: dashed
 }
 
 .placeholder-ring:nth-child(3) {
   width: 360px;
-  height: 360px;
+  height: 360px
 }
 
 .talent-body {
-  padding: 2rem;
+  padding: 2rem
 }
 
 .talent-tag {
@@ -621,7 +713,7 @@
   letter-spacing: .3em;
   text-transform: uppercase;
   color: var(--orange);
-  margin-bottom: .75rem;
+  margin-bottom: .75rem
 }
 
 .talent-name {
@@ -629,19 +721,19 @@
   font-size: 2.5rem;
   letter-spacing: .06em;
   line-height: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem
 }
 
 .talent-bio {
   font-size: .9rem;
   line-height: 1.75;
   color: #aaa;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.75rem
 }
 
 .talent-socials {
   display: flex;
-  gap: .75rem;
+  gap: .75rem
 }
 
 .talent-social {
@@ -655,59 +747,72 @@
   text-decoration: none;
   border: 1px solid var(--border);
   padding: .4rem .9rem;
-  transition: border-color .2s, color .2s;
+  transition: border-color .2s, color .2s
 }
 
 .talent-social:hover {
   border-color: var(--orange);
-  color: var(--orange);
+  color: var(--orange)
 }
 
 .talent-social svg {
   width: 13px;
-  height: 13px;
+  height: 13px
 }
 
 @media(max-width:768px) {
+  nav {
+    padding: 1.25rem 1.5rem
+  }
 
   .hero {
-    padding: 7rem 1.5rem 4rem;
+    padding: 7rem 1.5rem 4rem
   }
 
   .logo-mark,
   .logo-mark-inner {
-    display: none;
+    display: none
   }
 
   .about {
     grid-template-columns: 1fr;
-    padding: 4rem 1.5rem;
+    padding: 4rem 1.5rem
   }
 
   .services {
-    padding: 3rem 1.5rem 5rem;
+    padding: 3rem 1.5rem 5rem
   }
 
   .services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr
   }
 
   .roster {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1.5rem
   }
 
   .roster-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr
   }
 
   .contact {
-    padding: 5rem 1.5rem;
+    padding: 5rem 1.5rem
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1.5rem
   }
 
   .hero-scroll {
-    left: 1.5rem;
+    left: 1.5rem
   }
 
+  .divider {
+    margin: 0 1.5rem
+  }
 }
 
     .footer-copy a {
@@ -728,14 +833,14 @@
 
 .talent-stat {
   display: flex;
-  flex-direction: column;
+  flex-direction: column
 }
 
 .stat-val {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.6rem;
   color: var(--orange);
-  line-height: 1;
+  line-height: 1
 }
 
 .stat-lbl {
@@ -743,41 +848,41 @@
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-top: .1rem;
+  margin-top: .1rem
 }
 
 .partner {
   padding: 7rem 3rem;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto
 }
 
 .partner-intro {
   max-width: 680px;
   margin: 0 auto 4rem;
-  text-align: center;
+  text-align: center
 }
 
 .partner-intro .section-label {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem
 }
 
 .partner-intro .section-title {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem
 }
 
 .partner-intro p {
   font-size: 1rem;
   line-height: 1.85;
-  color: #aaa;
+  color: #aaa
 }
 
 .partner-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3rem
 }
 
 .partner-card {
@@ -786,7 +891,7 @@
   padding: 2rem;
   position: relative;
   overflow: hidden;
-  transition: border-color .3s;
+  transition: border-color .3s
 }
 
 .partner-card::before {
@@ -799,35 +904,35 @@
   background: var(--orange);
   transform: scaleY(0);
   transition: transform .3s;
-  transform-origin: top;
+  transform-origin: top
 }
 
 .partner-card:hover {
-  border-color: var(--orange);
+  border-color: var(--orange)
 }
 
 .partner-card:hover::before {
-  transform: scaleY(1);
+  transform: scaleY(1)
 }
 
 .partner-card-icon {
   width: 32px;
   height: 32px;
   color: var(--orange);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.25rem
 }
 
 .partner-card-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.3rem;
   letter-spacing: .06em;
-  margin-bottom: .6rem;
+  margin-bottom: .6rem
 }
 
 .partner-card-text {
   font-size: .85rem;
   line-height: 1.75;
-  color: var(--muted);
+  color: var(--muted)
 }
 
 .partner-nope {
@@ -837,41 +942,35 @@
   padding: 1.75rem 2rem;
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 1rem
 }
 
 .partner-nope-icon {
   flex-shrink: 0;
   margin-top: .1rem;
-  color: #444;
+  color: #444
 }
 
 .partner-nope-text {
   font-size: .85rem;
   line-height: 1.75;
-  color: #555;
+  color: #555
 }
 
 @media(max-width:768px) {
   .partner {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1.5rem
   }
 
   .partner-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr
   }
 }
   </style>
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  <link rel="canonical" href="https://nysterys.com/" />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" as="style" />
-  <link rel="stylesheet" href="global.css" />
-  <script src="icons.js" defer></script>
-  <script src="utils.js"></script>
-</head>
+ </head>
  <body>
   <nav>
-   <a class="nav-logo" href="/">
+   <a class="nav-logo" href="#">
     NYS<span>T</span>ERYS
    </a>
    <a class="nav-cta" href="#contact">
@@ -1271,9 +1370,18 @@ fetch('data.json')
   })
   .catch(function(err) { console.error('Could not load data.json:', err); });
   </script>
-
-   <script>
-    initEmail('#contact-email-link');
+  <script>
+   // Email is assembled in JS only — never present in HTML source
+   // so Cloudflare and scrapers cannot detect or rewrite it
+   (function() {
+     var parts = ['inquiries', '@', 'nysterys', '.', 'com'];
+     var email = parts.join('');
+     var link = document.getElementById('contact-email-link');
+     if (link) {
+       link.href = 'mailto:' + email;
+       link.innerHTML = email + ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+     }
+   })();
   </script>
-</body>
+ </body>
 </html>
